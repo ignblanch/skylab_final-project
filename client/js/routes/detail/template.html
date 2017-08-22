@@ -1,3 +1,116 @@
-<div>
-  <h1 style="margin-top:200px">DETAIL PAGE</h1>
+<div class="movie-container container">
+    <div class="row">
+      <div class="col-xs-12 col-md-3" id="movie-poster">
+        <img src="assets/mocksite/poster.jpg">
+      </div>
+      <div class="col-xs-12 col-md-5" id="movie-info">
+        <h1 id="#movie-title">LOST</h1>
+        <ul id="movie-tech">
+          <li><p>(2004 – 2010) Country: USA</p></li>
+          <li><p>Adventure, Drama, Fantasy</p></li>
+          <li><p>Created by: J.J. Abrams, Jeffrey Lieber, Damon Lindelof</p></li>
+          <li><p>The survivors of a plane crash are forced to work together in order to survive on a seemingly deserted tropical island.</p></li>
+        </ul>
+        <h3>AVG RATING:<span id="points">5.0</span></h3>
+        <h3 id="rate-movie">YOUR RATING:<span id="points">4.5</span></h3>
+        <p><a href="http://www.imdb.com/title/tt0411008/" target="_blank">View on imdb <span class="glyphicon glyphicon-new-window" aria-hidden="true"></span></a></p>
+      </div>
+      <div class="col-xs-12 col-md-4 fav-buttons">
+       
+        
+        <button class="btn btn-block btn-success btn-signup" id="addFav"><i class="fa fa-heart-o"></i> Add to Favorites</button>
+        <button class="btn btn-block btn-danger btn-signup" id="removeFav"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span> Remove Favorite</button>
+        <button class="btn btn-block btn-info btn-signup" data-toggle="modal" data-target="#comment-modal"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> Add Comment</button>
+      </div>
+    </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="comment-modal">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3 class="modal-title text-center">Add new comment</h3>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        Rate:
+        <form>
+        <div class="form-group">
+        <fieldset>
+            <span class="star-cb-group">
+            <input type="radio" id="rating-5" name="rating" value="5" /><label for="rating-5">5</label>
+            <input type="radio" id="rating-4" name="rating" value="4" checked="checked" /><label for="rating-4">4</label>
+            <input type="radio" id="rating-3" name="rating" value="3" /><label for="rating-3">3</label>
+            <input type="radio" id="rating-2" name="rating" value="2" /><label for="rating-2">2</label>
+            <input type="radio" id="rating-1" name="rating" value="1" /><label for="rating-1">1</label>
+            <input type="radio" id="rating-0" name="rating" value="0" class="star-cb-clear" /><label for="rating-0">0</label>
+            </span>
+          </fieldset>
+          <label for="comment">Comment:</label>
+          <textarea class="form-control" rows="5" id="comment"></textarea>
+          </div>
+          <button type="submit" class="btn btn-block btn-info btn-signup">Publish Comment</button>
+        </form>
+      </div>
+      <div class="modal-footer">
+        
+        <p class="signup"><a href="#" data-dismiss="modal" class="pull-right">Dismiss</a></p>
+      </div>
+    </div>
+  </div>
+</div><!-- End Modal -->
+
+
+<div class="comments-container container">
+<h2>User Comments</h2>
+
+  <ul id="comments-list">
+    <li class="comment">
+      <h4>Nice show!<span> - 4 <span class="glyphicon glyphicon-star" id="star" aria-hidden="true"></span></span></h4>
+      <p>by <a href="#">User1</a><small> 22-08-2017 13:10</small></p>
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+      tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+      quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+      consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+      cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+      proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+      <hr>
+    </li>
+    <li class="comment">
+      <h4>Disappointed<span> - 2 <span class="glyphicon glyphicon-star" id="star" aria-hidden="true"></span></span></h4>
+      <p>by <a href="#">AnotherUser</a><small> 22-08-2017 13:10</small></p>
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+      tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+      quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+      consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+      cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+      proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+      <hr>
+    </li>
+   <li class="comment">
+      <h4>UN-BE-LI-VA-BLE<span> - 5 <span class="glyphicon glyphicon-star" id="star" aria-hidden="true"></span></span></h4>
+      <p>by <a href="#">User3</a><small> 22-08-2017 13:10</small></p>
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+      tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+      quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+      consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+      cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+      proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+      <hr>
+    </li>
+    <li class="comment">
+      <h4>The end was sh***<span> - 1 <span class="glyphicon glyphicon-star" id="star" aria-hidden="true"></span></span></h4>
+      <p>by <a href="#">User4</a><small> 22-08-2017 13:10</small></p>
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+      tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+      quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+      consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+      cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+      proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+      <hr>
+    </li>
+  </ul>  
 </div>

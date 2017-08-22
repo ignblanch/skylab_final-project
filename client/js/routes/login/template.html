@@ -8,6 +8,23 @@
             <input type="password" id="inputPassword" class="form-control" placeholder="Password" required>
             <button class="btn btn-lg btn-success btn-block btn-signin" type="submit">Login</button>
         </form><!-- /form -->
-        <p class="signup">Don't have an account yet? <a href="signup.html"> Signup</a></p>
+        <p class="signup">Don't have an account yet? <a data-toggle="modal" data-target="#signupModal"> Signup</a></p>
     </div><!-- /card-container -->
 </div><!-- /container -->
+
+ <!-- Modal -->
+<div id="signupModal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+            <div class="card card-container">
+                <img id="profile-img" class="profile-img-card" src="assets/images/avatar_user.png" />
+                <p id="profile-name" class="profile-name-card"></p>
+                <form class="form-signup">
+                    <span id="reauth-email" class="reauth-email"></span>
+                    <input type="text" id="newUser" class="form-control" placeholder="Username" required autofocus>
+                    <input type="password" id="newPassword" class="form-control" placeholder="Password" required>
+                    <button class="btn btn-lg btn-success btn-block btn-signup" type="submit">Signup</button>
+                </form><!-- /form -->
+                <p class="signup"><a href="#" data-dismiss="modal" class="pull-right">Dismiss</a></p>
+            </div><!-- /card-container -->         
+    </div>
+</div><!-- End Modal -->

@@ -26,22 +26,21 @@
             </div>
             <div id="navbar" class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li class="active"><a href="/">
+                    <li><a href="/">
                         <span class="glyphicon glyphicon-home"
                          aria-hidden="true"></span> Home</a></li>
-                    <li><a href="/#!">
+                    <li><a href="#!/profile/:user">
                          <span class="glyphicon glyphicon-user"
                          aria-hidden="true"></span> 
                          Profile</a></li>
-                    <li><a href="/">
-                     <i class="fa fa-heart-o"></i> Saved</a></li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
                     <li ng-if="!loggedIn"><a href="#!/login">
                     <span class="glyphicon glyphicon-log-in"></span> Login</a>
                     </li>
+                    <li ng-if="!loggedIn"><a data-toggle="modal" data-target="#signupModal"> <i class="icon-chevron-sign-up"></i>Signup</a></li>
                     <li ng-if="loggedIn">
-                        <a>USERNAME</a>
+                        <a href="#!/profile/:user">{{user}}</a>
                     </li>
                     <li ng-if="loggedIn">
                         <a ng-click="logOut()">
@@ -50,20 +49,42 @@
                 </ul>
             </div>
         </div>
-    </nav>
-    <div class="container">
+    </nav> <!--End nav-->
+
         
+    </div>
+
+    <div class="container">
+
+        <!--Main content here-->
         <ng-view></ng-view>
 
-    </div>
-    <footer class="footer row-footer navbar navbar-fixed-bottom">
+         <!-- Modal -->
+        <div id="signupModal" class="modal fade" role="dialog">
+            <div class="modal-dialog">
+                    <div class="card card-container">
+                        <img id="profile-img" class="profile-img-card" src="assets/images/avatar_user.png" />
+                        <p id="profile-name" class="profile-name-card"></p>
+                        <form class="form-signup">
+                            <span id="reauth-email" class="reauth-email"></span>
+                            <input type="text" id="newUser" class="form-control" placeholder="Username" required autofocus>
+                            <input type="password" id="newPassword" class="form-control" placeholder="Password" required>
+                            <button class="btn btn-lg btn-success btn-block btn-signup" type="submit">Signup</button>
+                        </form><!-- /form -->
+                        <p class="signup"><a href="#" data-dismiss="modal" class="pull-right">Dismiss</a></p>
+                    </div><!-- /card-container -->         
+            </div>
+        </div><!-- End Modal -->
+
+    </div><!-- End main container-->
+
+    <footer class="footer row-footer">
         <div class="container text-center">
             <div class="row">
                 <div class="col-xs-12 col-sm-6">
                     <ul class="nav navbar-nav list-unstyled">
                         <li><a href="#!/">Home</a></li>
-                        <li><a href="#">Profile</a></li>
-                        <li><a href="#">Saved</a></li>
+                        <li><a href="#!/profile/:user">Profile</a></li>
                     </ul>
                 </div>
                 <div class="col-xs-12 col-sm-3 col-sm-offset-3">
@@ -78,32 +99,33 @@
                 </div>
             </div>
         </div>
-    </footer>
+    </footer><!--End Footer-->
+
     <!--AngularJS -->
-    <script type="text/javascript" src="bower_components/angular/angular.js"></script>
+        <script type="text/javascript" src="bower_components/angular/angular.js"></script>
     <!--Angular Route -->
-    <script type="text/javascript" src="bower_components/angular-route/angular-route.js"></script>
+        <script type="text/javascript" src="bower_components/angular-route/angular-route.js"></script>
     <!-- Main module -->
-    <script src="js/app.js"></script>
+        <script src="js/app.js"></script>
     <!-- Services -->
-    <script src="js/services/services.js"></script>
+        <script src="js/services/services.js"></script>
     <!--Jquery -->
-    <script type="text/javascript" src="bower_components/jquery/dist/jquery.js"></script>
+        <script type="text/javascript" src="bower_components/jquery/dist/jquery.js"></script>
     <!-- Boostrap -->
-    <script type="text/javascript" src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
+        <script type="text/javascript" src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
     <!--ROUTES -->
     <!--Home -->
-    <script src="js/routes/home/controller.js"></script>
-    <script src="js/routes/home/index.js"></script>
+        <script src="js/routes/home/controller.js"></script>
+        <script src="js/routes/home/index.js"></script>
     <!--Login -->
-    <script src="js/routes/login/controller.js"></script>
-    <script src="js/routes/login/index.js"></script>
+        <script src="js/routes/login/controller.js"></script>
+        <script src="js/routes/login/index.js"></script>
     <!--Movie detail -->
-    <script src="js/routes/detail/controller.js"></script>
-    <script src="js/routes/detail/index.js"></script>
+        <script src="js/routes/detail/controller.js"></script>
+        <script src="js/routes/detail/index.js"></script>
     <!--User Profile -->
-    <script src="js/routes/profile/controller.js"></script>
-    <script src="js/routes/profile/index.js"></script>
+        <script src="js/routes/profile/controller.js"></script>
+        <script src="js/routes/profile/index.js"></script>
 </body>
 
 </html>

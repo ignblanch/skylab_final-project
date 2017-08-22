@@ -1,12 +1,57 @@
+$unchecked-star: '\2606';
+$unchecked-color: #888;
+$checked-star: '\2605';
+$checked-color: #f2ee07;
+
 _* {
   border: 1px solid red;
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  margin-bottom: 100px;
+}
+
+.foreground:before {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top:0;
+  bottom: 0;
+  z-index: -1;
+  
+  display: block;
+  background-image: url("../assets/images/wallp.jpg");
+  background-repeat: repeat;
+  width: 100%;
+  height: 100%;
+  opacity: 0.2;
+  
+  -webkit-filter: blur(5px);
+  -moz-filter: blur(5px);
+  -o-filter: blur(5px);
+  -ms-filter: blur(5px);
+  filter: blur(5px);
+}
+
+footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 100px; //same height as the margin to the bottom of the body
 }
 
 .social-link {
   font-size: 18px;
 }
 
-h2, p {
+h2,
+p {
   color: white;
 }
 
@@ -24,6 +69,7 @@ h2, p {
   user-select: none;
   cursor: default;
 }
+
 
 /*
  * Card component
@@ -54,6 +100,7 @@ h2, p {
   border-radius: 50%;
 }
 
+
 /*
  * Form styles
  */
@@ -82,13 +129,17 @@ h2, p {
 }
 
 .form-signin {
-  #inputEmail, #inputPassword {
+  #inputEmail,
+  #inputPassword {
     direction: ltr;
     height: 44px;
     font-size: 16px;
   }
+
   input {
-    &[type=email], &[type=password], &[type=text] {
+    &[type=email],
+    &[type=password],
+    &[type=text] {
       width: 100%;
       display: block;
       margin-bottom: 10px;
@@ -97,7 +148,7 @@ h2, p {
       -moz-box-sizing: border-box;
       -webkit-box-sizing: border-box;
       box-sizing: border-box;
-    }
+      }
   }
   button {
     width: 100%;
@@ -135,9 +186,242 @@ h2, p {
   transition: all 0.218s;
 }
 
+.form-signup {
+  #newUser,
+  #newPassword {
+    direction: ltr;
+    height: 44px;
+    font-size: 16px;
+  }
+  input {
+    &[type=email],
+    &[type=password],
+    &[type=text] {
+        width: 100%;
+        display: block;
+        margin-bottom: 10px;
+        z-index: 1;
+        position: relative;
+        -moz-box-sizing: border-box;
+        -webkit-box-sizing: border-box;
+        box-sizing: border-box;
+    }
+  }
+  button {
+      width: 100%;
+      display: block;
+      margin-bottom: 10px;
+      z-index: 1;
+      position: relative;
+      -moz-box-sizing: border-box;
+      -webkit-box-sizing: border-box;
+      box-sizing: border-box;
+  }
+  .form-control:focus {
+      border-color: rgb(104, 145, 162);
+      outline: 0;
+      -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgb(104, 145, 162);
+      box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgb(104, 145, 162);
+  }
+}
+
+.btn.btn-signup {
+  /*background-color: #4d90fe; */
+  /*background-color: rgb(104, 145, 162);
+  / background-color: linear-gradient(rgb(104, 145, 162), rgb(12, 97, 33));*/
+  padding: 0px;
+  font-weight: 700;
+  font-size: 14px;
+  height: 36px;
+  -moz-border-radius: 3px;
+  -webkit-border-radius: 3px;
+  border-radius: 3px;
+  border: none;
+  -o-transition: all 0.218s;
+  -moz-transition: all 0.218s;
+  -webkit-transition: all 0.218s;
+  transition: all 0.218s;
+}
+
 .signup {
   color: rgb(104, 145, 162);
-  &:hover, &:active, &:focus {
-    color: rgb(12, 97, 33);
+  &:hover,
+  &:active,
+  &:focus {
+      color: rgb(12, 97, 33);
+  }
+}
+
+.movie-container {
+  padding: 20px;
+  margin-top: 100px;
+  border: 1px solid white;
+
+  #movie-poster {
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+
+    img {
+        flex-shrink: 0;
+        min-width: 100%;
+        min-height: 100%;
+    }
+  }
+
+  #movie-info {
+    #movie-tech {
+        list-style: none;
+        padding-left: 0;
+    }
+  }
+}
+
+#points {
+  border-radius: 100%;
+  padding: 5px;
+  background-color: $checked-color;
+  color: black;
+  margin: 5px;
+}
+
+.comments-container {
+  margin-top: 10px;
+
+  #new-comment {
+    padding: 5px;
+  }
+
+  #comments-list {
+    list-style: none;
+    padding-left: 0px;
+  }
+}
+
+#star {
+    color: $checked-color;
+  }
+
+.star-cb-group {
+  /* remove inline-block whitespace */
+  font-size: 0;
+  * {
+      font-size: 3rem;
+  }
+  /* flip the order so we can use the + and ~ combinators */
+  unicode-bidi: bidi-override;
+  direction: rtl;
+  &>input {
+    display: none;
+    &+label {
+      /* only enough room for the star */
+      display: inline-block;
+      overflow: hidden;
+      text-indent: 9999px;
+      width: 1em;
+      white-space: nowrap;
+      cursor: pointer;
+      &:before {
+        display: inline-block;
+        text-indent: -9999px;
+        content: $unchecked-star;
+        color: $unchecked-color;
+      }
+    }
+    &:checked~label:before,
+    &+label:hover~label:before,
+    &+label:hover:before {
+      content: $checked-star;
+      color: #f2ee07;
+      text-shadow: 0 0 1px #333;
+    }
+  }
+
+  /* the hidden clearer */
+  &>.star-cb-clear+label {
+    text-indent: -9999px;
+    width: .5em;
+    margin-left: -.5em;
+  }
+  &>.star-cb-clear+label:before {
+    width: .5em;
+  }
+
+  &:hover>input+label:before {
+    content: $unchecked-star;
+    color: $unchecked-color;
+    text-shadow: none;
+  }
+  &:hover>input+label:hover~label:before,
+  &:hover>input+label:hover:before {
+    content: $checked-star;
+    color: $checked-color;
+    text-shadow: 0 0 1px #333;
+  }
+}
+
+#profile-title {
+  margin-top: 75px;
+}
+
+.profile-container {
+  margin-top: 25px;
+
+  ul {
+    list-style: none;
+    padding-left: 0px;
+  }
+}
+
+.home-container {
+  margin-top: 100px;
+  padding: 20px;
+
+  #home-title {
+    margin-top: 100px;
+  }
+
+  #custom-search-input{
+      padding: 3px;
+      border: solid 1px #E4E4E4;
+      border-radius: 6px;
+      background-color: #fff;
+  }
+
+  #custom-search-input input{
+      border: 0;
+      box-shadow: none;
+  }
+
+  #custom-search-input button{
+      margin: 2px 0 0 0;
+      background: none;
+      box-shadow: none;
+      border: 0;
+      color: #666666;
+      padding: 0 8px 0 10px;
+      border-left: solid 1px #ccc;
+  }
+
+  #custom-search-input button:hover {
+      border: 0;
+      box-shadow: none;
+      border-left: solid 1px #ccc;
+  }
+
+  #custom-search-input .glyphicon-search{
+      font-size: 23px;
+  }
+
+   #home-button {
+    width: 30%;
+    margin-bottom: 10px;
+    z-index: 1;
+    position: relative;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
   }
 }
