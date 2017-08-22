@@ -1,0 +1,18 @@
+# dependency directory
+
+node_modules
+
+# session-file-store
+
+sessions
+
+#bower dependencies
+
+bower_components
+
+#local files
+
+*.env
+*.dev
+.DS_Store
+

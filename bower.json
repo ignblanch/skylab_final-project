@@ -1,0 +1,24 @@
+{
+  "name": "skylab_final-project",
+  "homepage": "https://github.com/ignblanch/skylab_final-project",
+  "authors": [
+    "Ignasi <ignblanch@gmail.com>"
+  ],
+  "description": "",
+  "main": "",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "^3.3.7",
+    "jquery": "^3.2.1",
+    "components-font-awesome": "^4.7.0",
+    "angular": "^1.6.6",
+    "angular-route": "^1.6.6"
+  }
+}

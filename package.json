@@ -1,0 +1,27 @@
+{
+  "name": "skylab_final-project",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node app",
+    "dev": "nodemon app",
+    "build:scss": "node-sass src/scss/styles.scss client/styles/styles.css",
+    "build:scss:watch": "node-sass src/scss/styles.scss client/styles/styles.css --watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ignblanch/skylab_final-project.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ignblanch/skylab_final-project/issues"
+  },
+  "homepage": "https://github.com/ignblanch/skylab_final-project#readme",
+  "dependencies": {},
+  "devDependencies": {
+    "node-sass": "^4.5.3"
+  }
+}
