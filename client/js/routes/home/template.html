@@ -1,40 +1,60 @@
 <div class="foreground">
   <div class="container container-fluid home-container text-center">
-      <h1 id="home-title">PROJECT NAME</h1>
-    <div class="row">
+    <img id="home-logo" src="assets/images/logo05.png" alt="logo">
+      <div class="row">
         <div class="col-md-10 col-md-offset-1">
-        <h2>Search your favorite movies and tv shows</h2>
+          <h2>Search your favorite movies and tv shows</h2>
             <form id="custom-search-input">
-                <div class="input-group col-md-12">
-                    <input type="text" class="form-control" placeholder="Search" />
-                    <span class="input-group-btn">
-                        <button class="btn btn-info" type="submit">
-                            <i class="glyphicon glyphicon-search"></i>
-                        </button>
-                    </span>
-                </div>
+              <div class="input-group col-md-12">
+                <input type="text" class="form-control" placeholder="Search" />
+                <span class="input-group-btn">
+                  <button class="btn btn-info" type="submit">
+                    <i class="glyphicon glyphicon-search"></i>
+                  </button>
+                </span>
+              </div>
             </form>
             <h4>Create an account and join our community -track your content add ratings and comments</h4>
-            <button class="btn btn-danger btn-signup" id="home-button" data-toggle="modal" data-target="#signupModal">Signup</button>
+            <button class="btn btn-danger btn-signup" id="home-button" data-toggle="modal" data-target="#signupModal">Create account</button>
             <p>Already have an account? <a href="#!/login">Enter</a></p>
         </div>
-  </div>
+      </div><!--End row-->
+      <div class="row">
+        <div class="col-xs-12 col-md-4">
+          <h3>SEARCH</h3>
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+          tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+          quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo</p>
+        </div>
+        <div class="col-xs-12 col-md-4">
+          <h3>RATE AND COMMENT</h3>
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+          tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+          quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo</p>
+        </div>
+        <div class="col-xs-12 col-md-4">
+          <h3>KEEP TRACK</h3>
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+          tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+          quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo</p>
+        </div>  
+      </div><!--End row-->
   </div>
 </div>
 
 <!-- Modal -->
 <div id="signupModal" class="modal fade" role="dialog">
-    <div class="modal-dialog">
-            <div class="card card-container">
-                <img id="profile-img" class="profile-img-card" src="assets/images/avatar_user.png" />
-                <p id="profile-name" class="profile-name-card"></p>
-                <form class="form-signup">
-                    <span id="reauth-email" class="reauth-email"></span>
-                    <input type="text" id="newUser" class="form-control" placeholder="Username" required autofocus>
-                    <input type="password" id="newPassword" class="form-control" placeholder="Password" required>
-                    <button class="btn btn-lg btn-success btn-block btn-signup" type="submit">Signup</button>
-                </form><!-- /form -->
-                <p class="signup"><a href="#" data-dismiss="modal" class="pull-right">Dismiss</a></p>
-            </div><!-- /card-container -->         
-    </div>
+  <div class="modal-dialog">
+      <div class="card card-container">
+        <img id="profile-img" class="profile-img-card" src="assets/images/avatar_user.png" />
+        <p id="profile-name" class="profile-name-card"></p>
+        <form class="form-signup">
+          <span id="reauth-email" class="reauth-email"></span>
+          <input type="text" id="newUser" class="form-control" placeholder="Username" required autofocus>
+          <input type="password" id="newPassword" class="form-control" placeholder="Password" required>
+          <button class="btn btn-lg btn-success btn-block btn-signup" type="submit">Signup</button>
+        </form><!-- /form -->
+        <p class="signup"><a href="#" data-dismiss="modal" class="pull-right">Dismiss</a></p>
+      </div><!-- /card-container -->         
+  </div>
 </div><!-- End Modal -->

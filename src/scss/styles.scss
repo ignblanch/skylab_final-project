@@ -16,6 +16,16 @@ body {
   margin-bottom: 100px;
 }
 
+#nav-logo {
+  margin-top: -12px;
+  max-height: 50px;
+}
+
+#home-logo {
+  margin-top: 10px;
+  max-height: 200px;
+}
+
 .foreground:before {
   content: "";
   position: absolute;
@@ -48,6 +58,56 @@ footer {
 
 .social-link {
   font-size: 18px;
+}
+
+#search {
+  float: right;
+  margin-top: 9px;
+  width: 250px;
+}
+
+.search {
+  padding: 5px 0px;
+  width: 230px;
+  height: 30px;
+  position: relative;
+  left: 0px;
+  float: left;
+  line-height: 22px;
+  input {
+    position: absolute;
+    width: 0px;
+    float: Left;
+    margin-left: 42px;
+    -webkit-transition: all 0.7s ease-in-out;
+    -moz-transition: all 0.7s ease-in-out;
+    -o-transition: all 0.7s ease-in-out;
+    transition: all 0.7s ease-in-out;
+    height: 40px;
+    line-height: 18px;
+    padding: 0 2px 0 2px;
+    border-radius: 1px;
+  }
+  &:hover input, input:focus {
+    width: 300px;
+    margin-left: 42px;
+  }
+}
+
+#nav-btn {
+  height: 40px;
+  position: absolute;
+  left: 0;
+  top: 5px;
+  border-radius: 1px;
+}
+
+#nav-mag {
+  font-size: 24px;
+}
+
+#top-search {
+  margin-top: 100px;
 }
 
 h2,
@@ -363,7 +423,7 @@ p {
 }
 
 #profile-title {
-  margin-top: 75px;
+  margin-top: 100px;
 }
 
 .profile-container {
@@ -373,18 +433,21 @@ p {
     list-style: none;
     padding-left: 0px;
   }
+
+  .btn-signup {
+    padding: 8px;
+  }
+}
+
+#sort-button {
+  padding-top: 5px;
 }
 
 .home-container {
-  margin-top: 100px;
+  margin-top: 30px;
   padding: 20px;
 
-  #home-title {
-    margin-top: 100px;
-  }
-
   #custom-search-input{
-      padding: 3px;
       border: solid 1px #E4E4E4;
       border-radius: 6px;
       background-color: #fff;
@@ -424,4 +487,26 @@ p {
     -webkit-box-sizing: border-box;
     box-sizing: border-box;
   }
+}
+
+
+#thumbs-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+
+  .thumbnail {
+    border: 0 none;
+    box-shadow: none;
+  img {
+    height: 300px;
+    width: 95%;
+    background-size: cover;
+    background-position: center center;
+  }
+  p {
+    height: 200px;
+    overflow: hidden;
+  }
+}
 }

@@ -15,6 +15,7 @@ The site will be a movies and TV shows aggregator. The user will be able to sear
     - HTML, CSS (SASS), Bootstrap - basic markup and design
     - AngularJS - MVC
     - Bower - Manage dependencies
+    - Browserify - bundle
 * BACK-END
     - NodeJS - Basic framework
     - npm - Manage dependencies

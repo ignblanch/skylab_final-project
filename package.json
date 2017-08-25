@@ -2,16 +2,20 @@
   "name": "skylab_final-project",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "app.js",
   "scripts": {
-    "start": "node app",
-    "dev": "nodemon app",
+    "postinstall": "node ./node_modules/bower/bin/bower install",
+    "start": "node server/app",
+    "dev": "nodemon server/app",
     "build:scss": "node-sass src/scss/styles.scss client/styles/styles.css",
     "build:scss:watch": "node-sass src/scss/styles.scss client/styles/styles.css --watch"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/ignblanch/skylab_final-project.git"
+  },
+  "engines": {
+    "node": "6.11.1"
   },
   "keywords": [],
   "author": "",
@@ -20,8 +24,17 @@
     "url": "https://github.com/ignblanch/skylab_final-project/issues"
   },
   "homepage": "https://github.com/ignblanch/skylab_final-project#readme",
-  "dependencies": {},
+  "dependencies": {
+    "body-parser": "^1.17.2",
+    "bower": "^1.8.0",
+    "express": "^4.15.4",
+    "path": "^0.12.7",
+    "pug": "^2.0.0-rc.3"
+  },
   "devDependencies": {
-    "node-sass": "^4.5.3"
+    "angular": "^1.6.6",
+    "angular-route": "^1.6.6",
+    "node-sass": "^4.5.3",
+    "nodemon": "^1.11.0"
   }
 }
