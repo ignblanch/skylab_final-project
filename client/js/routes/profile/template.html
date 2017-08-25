@@ -1,4 +1,4 @@
-<div class="dropdown">
+<!-- <div class="dropdown">
   <button id="sort-button" class="btn btn-md btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Sort by
   <span class="caret"></span></button>
   <ul class="dropdown-menu">
@@ -6,10 +6,17 @@
     <li><a href="#">ADDED</a></li>
     <li><a href="#">RATING</a></li>
   </ul>
-</div>
+</div> -->
+
 <div class="profile-container container">
-  <h4>User's Tv Shows<hr></h4>
-  <div class="row">
+<ul class="nav nav-tabs">
+  <li ng-class="{active: movies && tv}"><a ng-click="tv=true; movies=true" ng-class="{active: movies&&tv}">All</a></li>
+  <li ng-class="{active:tv && !movies}"><a ng-click="tv=true; movies=false">TvShows</a></li>
+  <li ng-class="{active: movies && !tv}"><a ng-click="tv=false; movies=true">Movies</a></li>
+  <li><a href="#">Reviews</a></li>
+</ul>
+  <div ng-show="tv" class="row">
+    <h4>User's Tv Shows<hr></h4>
     <div id="thumbs-container">
         <div class="thumbnail col-xs-12 col-md-3">
           <img ng-style="{'background-image':'url(assets/mocksite/poster.jpg)'}">
@@ -69,8 +76,9 @@
     </div>
   </div>
 </div>
-<h4>User's Movies<hr></h4>
-<div class="row">
+
+<div ng-show="movies" class="row">
+  <h4>User's Movies<hr></h4>
     <div id="thumbs-container">
         <div class="thumbnail col-xs-12 col-md-3">
           <img ng-style="{'background-image':'url(assets/mocksite/posterSW.jpg)'}">
