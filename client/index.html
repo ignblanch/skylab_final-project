@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" ng-app="skylab_final">
+<html lang="en" ng-app="movTv">
 <head>
   <meta charset="UTF-8">
   <title>movTv</title>
@@ -32,25 +32,27 @@
             <a href="/"><span class="glyphicon glyphicon-home" aria-hidden="true"></span> Home</a>
           </li>
            <li class="dropdown">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Profile <span class="caret"></span></a>
+            <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Profile <span class="caret"></span></a>
             <ul class="dropdown-menu">
               <li><a href="#!/profile/:user">View</a></li>
               <li><a href="#">Edit profile</a></li>
             </ul>
           </li>
           <li id="nav-mag">
-            <div class="search">
-              <input type="text" class="form-control input-sm" maxlength="64" placeholder="Search"/>
+            <div class="search" ng-controller="SearchController">
+              <form ng-submit="getQuery()">
+              <input ng-model="query" type="text" class="form-control input-sm" maxlength="64" placeholder="Search"/>
               <button id="nav-btn" type="submit" class="btn btn-primary btn-sm"><span id="nav-mag" class="glyphicon glyphicon-search"></button>
+              </form>
             </div>
           </li>
         </ul>
         <ul class="nav navbar-nav navbar-right">
             <li ng-if="!loggedIn">
-              <a href="#!/login"><span class="glyphicon glyphicon-log-in"></span> Login</a>
+              <a data-toggle="modal" data-target="#loginModal"><span class="glyphicon glyphicon-log-in"></span> Login</a>
             </li>
             <li ng-if="!loggedIn">
-              <a data-toggle="modal" data-target="#signupModal"> <i class="icon-chevron-sign-up"></i>Signup</a>
+              <a href="#!/signup" > <i class="icon-chevron-sign-up"></i>Signup</a>
             </li>
             <li ng-if="loggedIn">
               <a href="#!/profile/:user">{{user}}</a>
@@ -69,7 +71,7 @@
   </div><!-- End main container-->
 
   <!-- Modal -->
-  <div id="signupModal" class="modal fade" role="dialog">
+  <div id="loginModal" class="modal fade" role="dialog">
     <div class="modal-dialog">
         <div class="card card-container">
             <img id="profile-img" class="profile-img-card" src="assets/images/avatar_user.png" />
@@ -78,7 +80,7 @@
               <span id="reauth-email" class="reauth-email"></span>
               <input type="text" id="newUser" class="form-control" placeholder="Username" required autofocus>
               <input type="password" id="newPassword" class="form-control" placeholder="Password" required>
-              <button class="btn btn-lg btn-success btn-block btn-signup" type="submit">Signup</button>
+              <button class="btn btn-lg btn-success btn-block btn-signup" type="submit">Login</button>
             </form><!-- /form -->
             <p class="signup"><a href="#" data-dismiss="modal" class="pull-right">Dismiss</a></p>
         </div><!-- End card-container -->         
@@ -124,9 +126,9 @@
   <!--Home unlogged -->
   <script src="js/routes/home/controller.js"></script>
   <script src="js/routes/home/index.js"></script>
-  <!--Login -->
-  <script src="js/routes/login/controller.js"></script>
-  <script src="js/routes/login/index.js"></script>
+  <!--Signup -->
+  <script src="js/routes/signup/controller.js"></script>
+  <script src="js/routes/signup/index.js"></script>
   <!--Movie detail -->
   <script src="js/routes/detail/controller.js"></script>
   <script src="js/routes/detail/index.js"></script>

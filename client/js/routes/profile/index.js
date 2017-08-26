@@ -1,6 +1,6 @@
 /* global angular */
 
-angular.module('skylab_final')
+angular.module('movTv')
   .config(function ($routeProvider) {
     $routeProvider
       .when('/profile/:user', {

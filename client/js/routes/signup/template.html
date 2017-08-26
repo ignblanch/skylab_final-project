@@ -1,19 +1,20 @@
 <div class="container">
   <div class="card card-container">
+      <h3 class="signup">Create new account</h3>
       <img id="profile-img" class="profile-img-card" src="assets/images/avatar_user.png" />
       <p id="profile-name" class="profile-name-card"></p>
       <form class="form-signin">
         <span id="reauth-email" class="reauth-email"></span>
         <input type="email" id="inputEmail" class="form-control" placeholder="Username" required autofocus>
         <input type="password" id="inputPassword" class="form-control" placeholder="Password" required>
-        <button class="btn btn-lg btn-success btn-block btn-signin" type="submit">Login</button>
+        <button class="btn btn-lg btn-success btn-block btn-signin" type="submit">Singup</button>
       </form><!-- /form -->
-      <p class="signup">Don't have an account yet? <a data-toggle="modal" data-target="#signupModal"> Signup</a></p>
+      <p class="signup">Already have an account? <a data-toggle="modal" data-target="#loginModal"> Login</a></p>
   </div><!-- /card-container -->
 </div><!-- /container -->
 
  <!-- Modal -->
-<div id="signupModal" class="modal fade" role="dialog">
+<div id="loginModal" class="modal fade" role="dialog">
   <div class="modal-dialog">
     <div class="card card-container">
       <img id="profile-img" class="profile-img-card" src="assets/images/avatar_user.png" />
@@ -22,7 +23,7 @@
         <span id="reauth-email" class="reauth-email"></span>
         <input type="text" id="newUser" class="form-control" placeholder="Username" required autofocus>
         <input type="password" id="newPassword" class="form-control" placeholder="Password" required>
-        <button class="btn btn-lg btn-success btn-block btn-signup" type="submit">Signup</button>
+        <button class="btn btn-lg btn-success btn-block btn-signup" type="submit">Login</button>
       </form><!-- /form -->
       <p class="signup"><a href="#" data-dismiss="modal" class="pull-right">Dismiss</a></p>
     </div><!-- /card-container -->         

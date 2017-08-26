@@ -1,9 +1,9 @@
 /* global angular */
 
-angular.module('skylab_final')
+angular.module('movTv')
   .config(function ($routeProvider) {
     $routeProvider
-      .when('/detail/:movie', {
+      .when('/detail/:imdbID', {
         templateUrl: 'js/routes/detail/template.html',
         controller: 'DetailController'
       })

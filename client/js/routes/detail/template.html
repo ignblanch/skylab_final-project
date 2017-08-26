@@ -1,19 +1,19 @@
 <div class="movie-container container">
     <div class="row">
       <div class="col-xs-12 col-md-3" id="movie-poster">
-        <img src="assets/mocksite/poster.jpg">
+        <img src="{{media.Poster}}">
       </div>
       <div class="col-xs-12 col-md-6" id="movie-info">
-        <h1 id="#movie-title">LOST</h1>
+        <h1 id="#movie-title">{{media.Title}}</h1>
         <ul id="movie-tech">
-          <li><p>(2004 – 2010) Country: USA</p></li>
-          <li><p>Adventure, Drama, Fantasy</p></li>
-          <li><p>Created by: J.J. Abrams, Jeffrey Lieber, Damon Lindelof</p></li>
-          <li><p>The survivors of a plane crash are forced to work together in order to survive on a seemingly deserted tropical island.</p></li>
+          <li><p>({{media.Year}}) Country: {{media.Country}}</p></li>
+          <li><p>{{media.Genre}}</p></li>
+          <li><p>Created by: {{media.Writer}}</p></li>
+          <li><p>{{media.Plot}}</p></li>
         </ul>
-        <h3>AVG RATING:<span id="points">5.0</span></h3>
+        <h3>IMDB RATING:<span id="points">{{+((media.imdbRating)/2).toFixed(1)}}</span></h3>
         <h3 id="rate-movie">YOUR RATING:<span id="points">4.5</span></h3>
-        <p><a href="http://www.imdb.com/title/tt0411008/" target="_blank">View on imdb <span class="glyphicon glyphicon-new-window" aria-hidden="true"></span></a></p>
+        <p><a ng-href="http://www.imdb.com/title/{{media.imdbID}}/" target="_blank">View on imdb <span class="glyphicon glyphicon-new-window" aria-hidden="true"></span></a></p>
       </div>
       <div class="col-xs-12 col-md-3 fav-buttons">
         <button class="btn btn-block btn-info btn-signup" id="addFav"><i class="fa fa-heart-o"></i> Add to Favorites</button>

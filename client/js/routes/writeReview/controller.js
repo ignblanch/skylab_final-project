@@ -1,4 +1,4 @@
 /* global angular */
 
-angular.module('skylab_final')
+angular.module('movTv')
   .controller('WriteReviewController', function ($scope, $http) {})
