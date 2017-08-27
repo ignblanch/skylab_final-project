@@ -2,7 +2,7 @@
 
 angular.module('movTv')
   .factory('MediaService', function ($http) {
-    const apiKey = `&apikey=7dbc754c`
+    const apiKey = `&apikey=XXXXX`
 
     function searchMedia (title) {
       const url = `http://www.omdbapi.com/?s=${title}${apiKey}`
