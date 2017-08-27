@@ -12,11 +12,11 @@
           <li><p>{{media.Plot}}</p></li>
         </ul>
         <h3>IMDB RATING:<span id="points">{{+((media.imdbRating)/2).toFixed(1)}}</span></h3>
-        <h3 id="rate-movie">YOUR RATING:<span id="points">4.5</span></h3>
+        <h3 id="rate-movie">YOUR RATING:<span id="points">{{stars}}</span></h3>
         <p><a ng-href="http://www.imdb.com/title/{{media.imdbID}}/" target="_blank">View on imdb <span class="glyphicon glyphicon-new-window" aria-hidden="true"></span></a></p>
       </div>
       <div class="col-xs-12 col-md-3 fav-buttons">
-        <button class="btn btn-block btn-info btn-signup" id="addFav"><i class="fa fa-heart-o"></i> Add to Favorites</button>
+        <button ng-click="addFavorite(stars)" class="btn btn-block btn-info btn-signup" id="addFav"><i class="fa fa-heart-o"></i> Add to Favorites</button>
         <button class="btn btn-block btn-info btn-signup" id="removeFav"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span> Remove Favorite</button>
         <button class="btn btn-block btn-info btn-signup"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> Add Review</button><hr>
         <div id="rating-stats">
