@@ -2,15 +2,18 @@
 
 angular.module('movTv')
   .factory('MediaService', function ($http) {
-    const apiKey = `&apikey=7dbc754c`
+    // const apiKey = `&apikey=7dbc754c`
 
     function searchMedia (title) {
-      const url = `http://www.omdbapi.com/?s=${title}${apiKey}`
+      // const url = `http://www.omdbapi.com/?s=${title}${apiKey}`
+      const url = `/media/${title}`
       return $http.get(url)
     }
 
     function searchDetail (imdbID) {
-      const url = `http://www.omdbapi.com/?i=${imdbID}${apiKey}`
+      // const url = `http://www.omdbapi.com/?i=${imdbID}${apiKey}`
+      const url = `/media/detail/${imdbID}`
+      console.log(url)
       return $http.get(url)
     }
     return {
@@ -20,7 +23,6 @@ angular.module('movTv')
   })
   .factory('FavoritesService', function ($http) {
     function getFavoritesByUser (user) {
-      console.log(user)
       const url = `/favorites/${user}`
       return $http.get(url)
     }

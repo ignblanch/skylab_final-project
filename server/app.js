@@ -12,6 +12,7 @@ const URL_DB = process.env.URL_DB || 'mongodb://localhost:27017/test'
 
 const favoritesRoute = require('./routes/favorites')
 const commentsRoute = require('./routes/comments')
+const mediaRoute = require('./routes/media')
 
 mongoose.Promise = Promise
 mongoose.connect(URL_DB, {useMongoClient: true})
@@ -24,9 +25,9 @@ app.use(bodyParser.json())
 
 app.use('/favorites', favoritesRoute)
 app.use('/comments', commentsRoute)
+app.use('/media', mediaRoute)
 
 // app.locals.moment = moment // this makes the variable available from the pug files
-// app.locals.API_KEY = API_KEY
 
 app.listen(PORT)
 console.log(`Listening on PORT ${PORT}`)
