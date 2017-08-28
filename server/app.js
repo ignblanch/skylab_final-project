@@ -7,11 +7,11 @@ const bodyParser = require('body-parser')
 const app = express()
 
 const PORT = process.env.PORT || 3002
-const URL_DB = 'mongodb://localhost:27017/test'
+const URL_DB = process.env.URL_DB || 'mongodb://localhost:27017/test'
+// const API_KEY = process.env.API_KEY || `&apikey=7dbc754c`
 
 const favoritesRoute = require('./routes/favorites')
-// const routesTask = require('./routes/task')
-// const routeCompleted = require('./routes/completed')
+const commentsRoute = require('./routes/comments')
 
 mongoose.Promise = Promise
 mongoose.connect(URL_DB, {useMongoClient: true})
@@ -23,10 +23,10 @@ app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())
 
 app.use('/favorites', favoritesRoute)
-// app.use('/task', routesTask)
-// app.use('/completed', routeCompleted)
+app.use('/comments', commentsRoute)
 
 // app.locals.moment = moment // this makes the variable available from the pug files
+// app.locals.API_KEY = API_KEY
 
 app.listen(PORT)
 console.log(`Listening on PORT ${PORT}`)

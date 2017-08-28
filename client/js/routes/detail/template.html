@@ -12,13 +12,16 @@
           <li><p>{{media.Plot}}</p></li>
         </ul>
         <h3>IMDB RATING:<span id="points">{{+((media.imdbRating)/2).toFixed(1)}}</span></h3>
-        <h3 id="rate-movie">YOUR RATING:<span id="points">{{stars}}</span></h3>
+        <h3 id="rate-movie">YOUR RATING:<span ng-show="stars" id="points">{{stars.toFixed(1)}}</span><span ng-show="!stars" id="points">N/A</span></h3>
         <p><a ng-href="http://www.imdb.com/title/{{media.imdbID}}/" target="_blank">View on imdb <span class="glyphicon glyphicon-new-window" aria-hidden="true"></span></a></p>
       </div>
       <div class="col-xs-12 col-md-3 fav-buttons">
-        <button ng-click="addFavorite(stars)" class="btn btn-block btn-info btn-signup" id="addFav"><i class="fa fa-heart-o"></i> Add to Favorites</button>
-        <button class="btn btn-block btn-info btn-signup" id="removeFav"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span> Remove Favorite</button>
-        <button class="btn btn-block btn-info btn-signup"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> Add Review</button><hr>
+        <span ng-show="isFavorite"><i id="fav-star" class="fa fa-star" aria-hidden="true"></i>
+        <p>Added to Favorites</p></span>
+        <button ng-show="!isFavorite" data-toggle="modal" data-target="#favModal" class="btn btn-block btn-info btn-signup" id="addFav"><i class="fa fa-heart-o"></i> Add to Favorites</button>
+        <button ng-show="isFavorite" ng-click="removeFavorite(imdbID)" class="btn btn-block btn-info btn-signup" id="removeFav"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span> Remove Favorite</button>
+        <button class="btn btn-block btn-info btn-signup" data-toggle="modal" data-target="#rateModal"><i class="fa fa-star-o"></i> Rate</button>
+        <a href="#!/review/{{imdbID}}/{{user}}"><button class="btn btn-block btn-info btn-signup"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> Add Review</button></a><hr>
         <div id="rating-stats">
         <p>Marked as:</p> 
         <span class="glyphicon glyphicon-star" id="star" aria-hidden="true"></span>
@@ -45,63 +48,68 @@
         <hr>
         <span class="glyphicon glyphicon-star" id="star" aria-hidden="true"></span>
         <span class="pull-right">- 34 ratings </span>
-        </div>
-        
+        </div>   
       </div>
     </div>
 </div>
+
+<!-- Fav Modal -->
+  <div id="favModal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+        <div class="card card-container">
+            <p class="signup">Rate and add to Favorites: </p>
+            <div class="form-group">  
+              <fieldset>
+                <span class="star-cb-group">
+                  <input ng-model="stars" type="radio" id="rating-5" name="rating" ng-value="5"/><label for="rating-5">5</label>
+                  <input ng-model="stars" type="radio" id="rating-4" name="rating" ng-value="4"/><label for="rating-4">4</label>
+                  <input ng-model="stars" type="radio" id="rating-3" name="rating" ng-value="3"/><label for="rating-3">3</label>
+                  <input ng-model="stars" type="radio" id="rating-2" name="rating" ng-value="2"/><label for="rating-2">2</label>
+                  <input ng-model="stars" type="radio" id="rating-1" name="rating" ng-value="1"/><label for="rating-1">1</label>
+                  <input ng-model="stars" type="radio" id="rating-0" name="rating" ng-value="0" class="star-cb-clear" /><label for="rating-0">0</label>
+                </span>
+              </fieldset>
+              <button ng-click="addFavorite(stars)" data-dismiss="modal" class="btn btn-lg btn-success btn-block btn-signup">Add Favorite</button>
+        </div>
+            <p class="signup"><a href="#" data-dismiss="modal" class="pull-right">Dismiss</a></p>
+        </div><!-- End card-container -->         
+    </div>
+  </div><!-- End Fav Modal -->
+
+  <!-- Rate Modal -->
+  <div id="rateModal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+        <div class="card card-container">
+            <p class="signup">Rate: </p>
+            <div class="form-group">  
+              <fieldset>
+                <span class="star-cb-group">
+                  <input ng-model="stars" type="radio" id="rating-5" name="rating" ng-value="5"/><label for="rating-5">5</label>
+                  <input ng-model="stars" type="radio" id="rating-4" name="rating" ng-value="4"/><label for="rating-4">4</label>
+                  <input ng-model="stars" type="radio" id="rating-3" name="rating" ng-value="3"/><label for="rating-3">3</label>
+                  <input ng-model="stars" type="radio" id="rating-2" name="rating" ng-value="2"/><label for="rating-2">2</label>
+                  <input ng-model="stars" type="radio" id="rating-1" name="rating" ng-value="1"/><label for="rating-1">1</label>
+                  <input ng-model="stars" type="radio" id="rating-0" name="rating" ng-value="0" class="star-cb-clear" /><label for="rating-0">0</label>
+                </span>
+              </fieldset>
+              <button data-dismiss="modal" class="btn btn-lg btn-success btn-block btn-signup">Add Rating</button>
+        </div>
+            <p class="signup"><a href="#" data-dismiss="modal" class="pull-right">Dismiss</a></p>
+        </div><!-- End card-container -->         
+    </div>
+  </div><!-- End Rate Modal -->
 
 <div class="comments-container container">
 <h2>User Comments</h2>
 
   <ul id="comments-list">
-    <li class="comment">
-      <h4>Nice show!<span> - 4 <span class="glyphicon glyphicon-star" id="star" aria-hidden="true"></span></span></h4>
-      <p>by <a href="#">User1</a><small> 22-08-2017 13:10</small></p>
-      <p ng-hide={{false}}>This comment has been marked as spoiler. Click <a href="">here</a> to show</p>
-      <p ng-hide={{true}}>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-      tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-      quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-      consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-      cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-      proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-      <button class="btn btn-xs btn-danger"><span class="glyphicon glyphicon-warning-sign"></span> spoiler</button>
-      <hr>
-    </li>
-    <li class="comment">
-      <h4>Disappointed<span> - 2 <span class="glyphicon glyphicon-star" id="star" aria-hidden="true"></span></span></h4>
-      <p>by <a href="#">AnotherUser</a><small> 22-08-2017 13:10</small></p>
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-      tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-      quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-      consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-      cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-      proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-       <button class="btn btn-xs btn-danger"><span class="glyphicon glyphicon-warning-sign"></span> spoiler</button>
-      <hr>
-    </li>
-   <li class="comment">
-      <h4>UN-BE-LI-VA-BLE<span> - 5 <span class="glyphicon glyphicon-star" id="star" aria-hidden="true"></span></span></h4>
-      <p>by <a href="#">User3</a><small> 22-08-2017 13:10</small></p>
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-      tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-      quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-      consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-      cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-      proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-       <button class="btn btn-xs btn-danger"><span class="glyphicon glyphicon-warning-sign"></span> spoiler</button>
-      <hr>
-    </li>
-    <li class="comment">
-      <h4>The end was sh***<span> - 1 <span class="glyphicon glyphicon-star" id="star" aria-hidden="true"></span></span></h4>
-      <p>by <a href="#">User4</a><small> 22-08-2017 13:10</small></p>
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-      tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-      quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-      consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-      cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-      proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-       <button class="btn btn-xs btn-danger"><span class="glyphicon glyphicon-warning-sign"></span> spoiler</button>
+    <div ng-if="Comments.length===0">No reviews for this series yet <a href="#!/review/{{imdbID}}/{{user}}">add yours now</a></div>
+    <li ng-repeat="comment in Comments" class="comment">
+      <h4>{{comment.commentTitle}}<span> - {{comment.stars}} <span class="glyphicon glyphicon-star" id="star" aria-hidden="true"></span></span></h4>
+      <p>by <a href="#">{{comment.author}}</a><small> {{comment.date}}</small></p>
+      <p ng-show="comment.spoiler">This comment has been marked as spoiler. Click <a ng-click="">here</a> to show</p>
+      <p ng-show="!comment.spoiler">{{comment.body}}</p>
+      <button ng-click="comment.spoiler=true" class="btn btn-xs btn-danger"><span class="glyphicon glyphicon-warning-sign"></span> spoiler</button>
       <hr>
     </li>
   </ul>  

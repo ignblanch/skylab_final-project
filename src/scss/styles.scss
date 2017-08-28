@@ -294,6 +294,7 @@ p {
   font-weight: 700;
   font-size: 14px;
   height: 36px;
+  margin-bottom: 5px;
   -moz-border-radius: 3px;
   -webkit-border-radius: 3px;
   border-radius: 3px;
@@ -330,6 +331,11 @@ p {
       min-width: 100%;
       min-height: 100%;
     }
+  }
+
+  #fav-star {
+    color:yellow;
+    font-size: 48px;
   }
 
   #movie-info {
@@ -528,3 +534,13 @@ p {
 .review-container {
   margin-top: 100px;
 }
+
+#comment-title {
+  margin-bottom: 10px;
+}
+
+#review-image {
+    min-width: 100%;
+    min-height: 100%;
+    
+  }

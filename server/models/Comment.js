@@ -5,9 +5,9 @@ const collection = 'comments'
 let CommentSchema = new mongoose.Schema({
   author: {
     type: String,
-    required: true
+    default: 'defaultUser'
   },
-  title: {
+  commentTitle: {
     type: String,
     required: true
   },
@@ -15,9 +15,9 @@ let CommentSchema = new mongoose.Schema({
     type: Number,
     default: 0
   },
-  imdbId: {
-    type: Number,
-    default: 0
+  imdbID: {
+    type: String,
+    required: true
   },
   body: {
     type: String,

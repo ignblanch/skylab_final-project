@@ -2,11 +2,13 @@ const express = require('express')
 const router = express.Router()
 
 const addFavorite = require('./handlers/addFavorite')
-const getFavorites = require('./handlers/getFavorites')
+const getFavoritesByUser = require('./handlers/getFavoritesByUser')
 const removeFavorite = require('./handlers/removeFavorite')
+const getFavorite = require('./handlers/getFavorite')
 
-router.post('/', addFavorite)
-router.get('/', getFavorites)
-router.delete('/:imdbId', removeFavorite)
+router.get('/:user', getFavoritesByUser)
+router.post('/:user/:imdbID/:stars', addFavorite)
+router.delete('/:user/:imdbID', removeFavorite)
+router.get('/:user/:imdbID', getFavorite)
 
 module.exports = router

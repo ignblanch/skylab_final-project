@@ -3,7 +3,7 @@
 angular.module('movTv')
   .config(function ($routeProvider) {
     $routeProvider
-      .when('/review/:movie', {
+      .when('/review/:imdbID/:author', {
         templateUrl: 'js/routes/writeReview/template.html',
         controller: 'WriteReviewController'
       })

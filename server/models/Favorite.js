@@ -3,19 +3,15 @@ const mongoose = require('mongoose')
 const collection = 'favorites'
 
 let FavoriteSchema = new mongoose.Schema({
-  title: {
+  user: {
     type: String,
-    required: true
+    default: 'defaultUser'
   },
-  posterUrl: {
+  imdbID: {
     type: String,
-    required: true
-  },
-  stars: {
-    type: Number,
     default: 0
   },
-  imdbId: {
+  stars: {
     type: Number,
     default: 0
   }
