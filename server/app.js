@@ -7,7 +7,7 @@ const bodyParser = require('body-parser')
 const app = express()
 
 const PORT = process.env.PORT || 3002
-const DB_URL = process.env.URL_DB || 'mongodb://localhost:27017/test'
+const DB_URL = process.env.DB_URL || 'mongodb://localhost:27017/test'
 
 const favoritesRoute = require('./routes/favorites')
 const commentsRoute = require('./routes/comments')
