@@ -55,7 +55,7 @@ angular.module('movTv')
       return $http.get(url)
     }
     function getCommentsByAuthor (author) {
-      const url = `/comments/${author}`
+      const url = `/comments/author/${author}`
       return $http.get(url)
     }
 
@@ -70,10 +70,16 @@ angular.module('movTv')
       return $http.delete(url)
     }
 
+    function markCommentSpoiler (id) {
+      const url = `comments/${id}`
+      return $http.post(url)
+    }
+
     return {
       getCommentsByFilm: getCommentsByFilm,
       getCommentsByAuthor: getCommentsByAuthor,
       addComment: addComment,
-      removeComment: removeComment
+      removeComment: removeComment,
+      markCommentSpoiler: markCommentSpoiler
     }
   })

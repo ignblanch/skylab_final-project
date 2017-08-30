@@ -3,19 +3,18 @@ const mongoose = require('mongoose')
 const path = require('path')
 const bodyParser = require('body-parser')
 // const moment = require('moment')
-
+// global API_KEY = process.env.API_KEY || `&apikey=7dbc754c`
 const app = express()
 
 const PORT = process.env.PORT || 3002
-const URL_DB = process.env.URL_DB || 'mongodb://localhost:27017/test'
-// const API_KEY = process.env.API_KEY || `&apikey=7dbc754c`
+const DB_URL = process.env.URL_DB || 'mongodb://localhost:27017/test'
 
 const favoritesRoute = require('./routes/favorites')
 const commentsRoute = require('./routes/comments')
 const mediaRoute = require('./routes/media')
 
 mongoose.Promise = Promise
-mongoose.connect(URL_DB, {useMongoClient: true})
+mongoose.connect(DB_URL, {useMongoClient: true})
 
 app.set('view engine', 'pug')
 

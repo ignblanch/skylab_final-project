@@ -5,6 +5,7 @@ angular.module('movTv')
     $scope.imdbID = $routeParams.imdbID
     $scope.user = 'defaultUser'
     getFavorite()
+    $scope.starsCount = {5: 0, 4: 0, 3: 0, 2: 0, 1: 0}
 
     MediaService.searchDetail($scope.imdbID)
     .then(function (response) {
@@ -12,6 +13,7 @@ angular.module('movTv')
       console.log($scope.media)
       $scope.title = $scope.media.Title
       $scope.imdbId = $scope.media.imdbID
+      $scope.director = $scope.media.Director
       $scope.posterUrl = $scope.media.Poster
       $scope.type = $scope.media.Type
     })
@@ -46,10 +48,26 @@ angular.module('movTv')
     CommentsService.getCommentsByFilm($scope.imdbID)
     .then(function (response) {
       $scope.Comments = response.data
+      $scope.totalRatings = $scope.Comments.length
+      $scope.Comments.forEach(function (comment) {
+        switch (comment.stars) {
+          case 5: $scope.starsCount[5]++; break
+          case 4: $scope.starsCount[4]++; break
+          case 3: $scope.starsCount[3]++; break
+          case 2: $scope.starsCount[2]++; break
+          case 1: $scope.starsCount[1]++
+        }
+      })
       console.log($scope.Comments)
     })
+
+    function markSpoiler (commentId) {
+      CommentsService.markCommentSpoiler(commentId)
+        .then(console.log('comment marked as spoiler'))
+    }
 
     $scope.addFavorite = addFavorite
     $scope.removeFavorite = removeFavorite
     $scope.getFavorite = getFavorite
+    $scope.markSpoiler = markSpoiler
   })

@@ -52,7 +52,7 @@ footer {
   width: 250px; }
 
 .search {
-  padding: 5px 0px;
+  padding: 8px 0px;
   width: 230px;
   height: 30px;
   position: relative;
@@ -61,26 +61,29 @@ footer {
   line-height: 22px; }
   .search input {
     position: absolute;
-    width: 0px;
+    color: white;
+    font-size: 16px;
+    background-color: #375A7F;
+    width: 300px;
     float: Left;
     margin-left: 42px;
-    -webkit-transition: all 0.7s ease-in-out;
-    -moz-transition: all 0.7s ease-in-out;
-    -o-transition: all 0.7s ease-in-out;
-    transition: all 0.7s ease-in-out;
     height: 40px;
     line-height: 18px;
-    padding: 0 2px 0 2px;
+    padding: 10px;
     border-radius: 1px; }
   .search:hover input, .search input:focus {
-    width: 300px;
-    margin-left: 42px; }
+    background-color: #4d7eb3; }
+  .search ::-webkit-input-placeholder {
+    color: white; }
+
+.media-heading {
+  font-size: 20px; }
 
 #nav-btn {
   height: 40px;
   position: absolute;
   left: 0;
-  top: 5px;
+  top: 8px;
   border-radius: 1px; }
 
 #nav-mag {
@@ -274,9 +277,11 @@ p {
   .movie-container #movie-info #movie-tech {
     list-style: none;
     padding-left: 0; }
-  .movie-container #rating-stats hr {
-    margin: 0;
-    padding: 0; }
+  .movie-container #rating-stats {
+    font-size: 18px; }
+    .movie-container #rating-stats hr {
+      margin: 0;
+      padding: 0; }
 
 #points {
   border-radius: 100%;
@@ -350,9 +355,6 @@ p {
   .profile-container .btn-signup {
     padding: 8px; }
 
-#sort-button {
-  padding-top: 5px; }
-
 .home-container {
   margin-top: 30px;
   padding: 20px; }
@@ -389,7 +391,7 @@ p {
 #thumbs-container {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between; }
+  justify-content: flex-start; }
   #thumbs-container .thumbnail {
     border: 0 none;
     box-shadow: none; }

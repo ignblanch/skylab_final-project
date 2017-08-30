@@ -3,14 +3,15 @@
 <head>
   <meta charset="UTF-8">
   <title>movTv</title>
-  
-  <!--Bootstrap-->
+
+  <!-- STYLES -->
+  <!-- Bootstrap -->
   <link rel="stylesheet" type="text/css" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
-  <!--Bootstrap Theme-->
+  <!-- Bootstrap Theme -->
   <link rel="stylesheet" type="text/css" href="styles/bootstrap.min.css">
-  <!--Font-awesome-->
+  <!-- Font-awesome -->
   <link rel="stylesheet" type="text/css" href="bower_components/components-font-awesome/css/font-awesome.css">
-  <!--custom styles-->
+  <!-- custom styles -->
   <link rel="stylesheet" type="text/css" href="styles/styles.css">
 </head>
 
@@ -31,12 +32,8 @@
           <li>
             <a href="/"><span class="glyphicon glyphicon-home" aria-hidden="true"></span> Home</a>
           </li>
-           <li class="dropdown">
-            <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Profile <span class="caret"></span></a>
-            <ul class="dropdown-menu">
-              <li><a href="#!/profile/:user">View</a></li>
-              <li><a href="#">Edit profile</a></li>
-            </ul>
+          <li>
+            <a href="#!/profile/defaultUser">Profile</a>
           </li>
           <li id="nav-mag">
             <div class="search" ng-controller="SearchController">
@@ -46,7 +43,8 @@
               </form>
             </div>
           </li>
-        </ul>
+        </ul><!-- End navbar left -->
+
         <ul class="nav navbar-nav navbar-right">
             <li ng-if="!loggedIn">
               <a data-toggle="modal" data-target="#loginModal"><span class="glyphicon glyphicon-log-in"></span> Login</a>
@@ -60,14 +58,16 @@
             <li ng-if="loggedIn">
               <a ng-click="logOut()"><span class="glyphicon glyphicon-log-in"></span> Logout</a>
             </li>
-        </ul>
+        </ul> <!-- End navbar-right -->
+
       </div>
     </div>
   </nav> <!--End nav-->    
 
-  <div class="container">
-    <!--Main content here-->
+  <div class="container"><!--Main content here-->
+    
     <ng-view></ng-view> 
+
   </div><!-- End main container-->
 
   <!-- Modal -->
@@ -122,23 +122,23 @@
   <script type="text/javascript" src="bower_components/jquery/dist/jquery.js"></script>
   <!-- Boostrap -->
   <script type="text/javascript" src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
-  <!--ROUTES -->
-  <!--Home unlogged -->
+  <!-- ROUTES -->
+  <!-- Home unlogged -->
   <script src="js/routes/home/controller.js"></script>
   <script src="js/routes/home/index.js"></script>
-  <!--Signup -->
+  <!-- Signup -->
   <script src="js/routes/signup/controller.js"></script>
   <script src="js/routes/signup/index.js"></script>
-  <!--Movie detail -->
+  <!-- Movie detail -->
   <script src="js/routes/detail/controller.js"></script>
   <script src="js/routes/detail/index.js"></script>
-  <!--User Profile -->
+  <!-- User Profile -->
   <script src="js/routes/profile/controller.js"></script>
   <script src="js/routes/profile/index.js"></script>
-  <!--Results page -->
+  <!-- Results page -->
   <script src="js/routes/results/controller.js"></script>
   <script src="js/routes/results/index.js"></script>
-  <!--Write Review page -->
+  <!-- Write Review page -->
   <script src="js/routes/writeReview/controller.js"></script>
   <script src="js/routes/writeReview/index.js"></script>
 </body>

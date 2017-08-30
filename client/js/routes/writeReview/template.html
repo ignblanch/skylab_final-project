@@ -4,28 +4,30 @@
     <h3>Add new review for {{title}}</h3>
     <img id="review-image" src={{posterUrl}}>
   </div>
-    <form class="col-md-6 col-xs-12">
-    Rate:
+    <form name="reviewForm" class="col-md-6 col-xs-12">
+    Rate: *
     <div class="form-group">
       <fieldset>
         <span class="star-cb-group">
-          <input ng-model="stars" type="radio" id="rating-5" name="rating" ng-value="5"/><label for="rating-5">5</label>
-          <input ng-model="stars" type="radio" id="rating-4" name="rating" ng-value="4"/><label for="rating-4">4</label>
-          <input ng-model="stars" type="radio" id="rating-3" name="rating" ng-value="3"/><label for="rating-3">3</label>
-          <input ng-model="stars" type="radio" id="rating-2" name="rating" ng-value="2"/><label for="rating-2">2</label>
-          <input ng-model="stars" type="radio" id="rating-1" name="rating" ng-value="1"/><label for="rating-1">1</label>
-          <input ng-model="stars" type="radio" id="rating-0" name="rating" ng-value="0" class="star-cb-clear" /><label for="rating-0">0</label>
+          <input ng-model="stars" type="radio" id="rating-5" name="rating" ng-value="5" ng-required="true"/><label for="rating-5">5</label>
+          <input ng-model="stars" type="radio" id="rating-4" name="rating" ng-value="4" ng-required="true"/><label for="rating-4">4</label>
+          <input ng-model="stars" type="radio" id="rating-3" name="rating" ng-value="3" ng-required="true"/><label for="rating-3">3</label>
+          <input ng-model="stars" type="radio" id="rating-2" name="rating" ng-value="2" ng-required="true"/><label for="rating-2">2</label>
+          <input ng-model="stars" type="radio" id="rating-1" name="rating" ng-value="1" ng-required="true"/><label for="rating-1">1</label>
+          <input ng-model="stars" type="radio" id="rating-0" name="rating" ng-value="0" ng-required="true" class="star-cb-clear" /><label for="rating-0">0</label>
         </span>
       </fieldset>
-      <label for="title">Title:</label>
-      <input required="true" id="comment-title" placeholder="Add comment title" class="form-control" type="text" name="title" ng-model="commentTitle">
-      <label for="comment">Your Review:</label>
-      <textarea ng-model="body" class="form-control" rows="5" id="comment"></textarea>
+      <label for="title">Title: *</label>
+      <input ng-required="true" id="comment-title" placeholder="Add comment title" class="form-control" type="text" name="title" ng-model="commentTitle">
+      <label for="comment">Your Review: *</label>
+      <textarea ng-required="true" ng-model="body" class="form-control" rows="5" id="comment"></textarea>
       </div>
       <div class="checkbox">
         <label><input type="checkbox" ng-model="spoiler"><i class="fa fa-exclamation-triangle" aria-hidden="true"></i>This review contains spoilers</label>
       </div>
-      <button ng-click="postComment()" type="submit" class="btn btn-block btn-info btn-signup">Publish Review</button>
+      <button ng-disabled="reviewForm.$invalid" ng-click="postComment()" type="submit" class="btn btn-block btn-info btn-signup">Publish Review</button>
+      <p><a href="#!/detail/{{imdbID}}">Cancel</a></p>
+      <p>Fields marked * are required</p>
     </form>
     </div>
 </div>
