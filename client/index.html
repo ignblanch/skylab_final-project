@@ -8,7 +8,7 @@
   <!-- Bootstrap -->
   <link rel="stylesheet" type="text/css" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
   <!-- Bootstrap Theme -->
-  <link rel="stylesheet" type="text/css" href="styles/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="bower_components/bootstrap/dist/css/bootstrap_THEME.min.css">
   <!-- Font-awesome -->
   <link rel="stylesheet" type="text/css" href="bower_components/components-font-awesome/css/font-awesome.css">
   <!-- custom styles -->
@@ -37,7 +37,7 @@
           </li>
           <li id="nav-mag">
             <div class="search" ng-controller="SearchController">
-              <form ng-submit="getQuery()">
+              <form ng-submit="getQuery(); query=''">
               <input ng-model="query" type="text" class="form-control input-sm" maxlength="64" placeholder="Search"/>
               <button id="nav-btn" type="submit" class="btn btn-primary btn-sm"><span id="nav-mag" class="glyphicon glyphicon-search"></button>
               </form>
@@ -93,7 +93,7 @@
         <div class="col-xs-12 col-sm-6">
           <ul class="nav navbar-nav list-unstyled">
             <li><a href="#!/">Home</a></li>
-            <li><a href="#!/profile/:user">Profile</a></li>
+            <li><a href="#!/profile/defaultUser">Profile</a></li>
           </ul>
         </div>
         <div class="col-xs-12 col-sm-3 col-sm-offset-3">

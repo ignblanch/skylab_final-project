@@ -11,11 +11,11 @@ angular.module('movTv')
     .then(function (response) {
       $scope.media = response.data
       console.log($scope.media)
-      $scope.title = $scope.media.Title
+      // $scope.title = $scope.media.Title
       $scope.imdbId = $scope.media.imdbID
-      $scope.director = $scope.media.Director
-      $scope.posterUrl = $scope.media.Poster
-      $scope.type = $scope.media.Type
+      // $scope.director = $scope.media.Director
+      // $scope.posterUrl = $scope.media.Poster
+      // $scope.type = $scope.media.Type
     })
 
     function addFavorite (stars) {

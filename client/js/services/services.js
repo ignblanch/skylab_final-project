@@ -13,7 +13,6 @@ angular.module('movTv')
     function searchDetail (imdbID) {
       // const url = `http://www.omdbapi.com/?i=${imdbID}${apiKey}`
       const url = `/media/detail/${imdbID}`
-      console.log(url)
       return $http.get(url)
     }
     return {
@@ -42,11 +41,17 @@ angular.module('movTv')
       return $http.get(url)
     }
 
+    function editStarsFav (FavId, newStars) {
+      const url = `favorites/${FavId}/${newStars}`
+      return $http.put(url)
+    }
+
     return {
       getFavoritesByUser: getFavoritesByUser,
       addFavorite: addFavorite,
       removeFavorite: removeFavorite,
-      getFavorite: getFavorite
+      getFavorite: getFavorite,
+      editStarsFav: editStarsFav
     }
   })
   .factory('CommentsService', function ($http) {
@@ -60,7 +65,6 @@ angular.module('movTv')
     }
 
     function addComment (author, commentTitle, stars, imdbID, body, spoiler) {
-      console.log('entered addComment')
       const url = `comments/${author}/${commentTitle}/${stars}/${imdbID}/${body}/${spoiler}`
       return $http.post(url)
     }

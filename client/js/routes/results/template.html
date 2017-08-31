@@ -1,5 +1,6 @@
 <h3 id="profile-title">Your search results:</h3> 
 <div class="profile-container container">
+  <p ng-show="!mediaResults.Search">No results</p>
     <ul id="media-list">
       <li ng-repeat="media in mediaResults.Search">
         <div class="media">

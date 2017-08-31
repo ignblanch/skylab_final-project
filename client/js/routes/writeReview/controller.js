@@ -18,7 +18,6 @@ angular.module('movTv')
     })
 
     function postComment () {
-      console.log($scope.commentTitle)
       CommentsService.addComment($scope.author, $scope.commentTitle, $scope.stars, $scope.imdbID, $scope.body, $scope.spoiler)
       .then($window.location.href = `#!/detail/${$scope.imdbID}`)
     }

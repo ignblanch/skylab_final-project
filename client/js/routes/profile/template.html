@@ -8,10 +8,10 @@
   <div ng-show="tv" class="row">
     <h4>User's Tv Shows<hr></h4>
     <div id="thumbs-container">
-        <div ng-repeat="favorite in FullFavorites track by $index" ng-if="favorite.Type == 'series'" class="thumbnail col-xs-12 col-md-3">
+        <div ng-repeat="favorite in FullFavorites | orderBy:'favId'" ng-if="favorite.Type == 'series'" class="thumbnail col-xs-12 col-md-3">
           <img ng-style="{'background-image':'url({{favorite.Poster}}})'}">
           <div class="caption text-center">
-            <h4>{{favorite.Title}}<span class="pull-right">{{favorite.stars}} <span class="glyphicon glyphicon-star" id="star" aria-hidden="true"></span></span></h4>
+            <h4>{{favorite.Title}}<a ng-click="setEditFavId(favorite.favId)" data-toggle="modal" data-target="#editStarsModal"><span class="pull-right">{{(favorite.stars)===0? 'N/A': favorite.stars}} <span class="glyphicon glyphicon-star" id="star" aria-hidden="true"></span></span></a></h4>
             <div class="btn-group btn-thumb" role="group">
             <button class="btn btn-info btn-signup" id="addFav"><span class="glyphicon glyphicon-info-sign"></span><a href="#!/detail/{{favorite.imdbID}}"> Details</a></button>
             <button class="btn btn-info btn-signup" id="removeFav"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span><a ng-click="removeFavorite(favorite.imdbID)"> Remove</a></button>
@@ -26,10 +26,10 @@
 <div ng-show="movies" class="row">
   <h4>User's Movies<hr></h4>
     <div id="thumbs-container"> 
-       <div ng-repeat="favorite in FullFavorites track by $index" ng-if="favorite.Type == 'movie'" class="thumbnail col-xs-12 col-md-3">
+       <div ng-repeat="favorite in FullFavorites | orderBy:'favId'" ng-if="favorite.Type == 'movie'" class="thumbnail col-xs-12 col-md-3">
           <img ng-style="{'background-image':'url({{favorite.Poster}}})'}">
           <div class="caption text-center">
-            <h4>{{favorite.Title}}<span class="pull-right">{{favorites[$index].stars}} <span class="glyphicon glyphicon-star" id="star" aria-hidden="true"></span></span></h4>
+            <h4>{{favorite.Title}}<a ng-click="setEditFavId(favorite.favId)" data-toggle="modal" data-target="#editStarsModal"><span class="pull-right">{{(favorite.stars)===0? 'N/A': favorite.stars}} <span class="glyphicon glyphicon-star" id="star" aria-hidden="true"></span></span></a></h4>
             <div class="btn-group btn-thumb" role="group">
             <button class="btn btn-info btn-signup" id="addFav"><span class="glyphicon glyphicon-info-sign"></span><a href="#!/detail/{{favorite.imdbID}}"> Details</a></button>
             <button class="btn btn-info btn-signup" id="removeFav"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span><a ng-click="removeFavorite(favorite.imdbID)"> Remove</a></button>
@@ -58,3 +58,26 @@
   </div>
   </div>
 </div>
+
+  <!-- EditStars Modal -->
+  <div id="editStarsModal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+        <div class="card card-container">
+            <p class="signup">Rate: </p>
+            <div class="form-group">  
+              <fieldset>
+                <span class="star-cb-group">
+                  <input ng-model="newStars" type="radio" id="rating-5" name="rating" ng-value="5"/><label for="rating-5">5</label>
+                  <input ng-model="newStars" type="radio" id="rating-4" name="rating" ng-value="4"/><label for="rating-4">4</label>
+                  <input ng-model="newStars" type="radio" id="rating-3" name="rating" ng-value="3"/><label for="rating-3">3</label>
+                  <input ng-model="newStars" type="radio" id="rating-2" name="rating" ng-value="2"/><label for="rating-2">2</label>
+                  <input ng-model="newStars" type="radio" id="rating-1" name="rating" ng-value="1"/><label for="rating-1">1</label>
+                  <input ng-model="newStars" type="radio" id="rating-0" name="rating" ng-value="0" class="star-cb-clear" /><label for="rating-0">0</label>
+                </span>
+              </fieldset>
+              <button ng-click="editStarsFav(newStars)" data-dismiss="modal" class="btn btn-lg btn-success btn-block btn-signup">Update rating</button>
+        </div>
+            <p class="signup"><a href="#" data-dismiss="modal" class="pull-right">Dismiss</a></p>
+        </div><!-- End card-container -->         
+    </div>
+  </div><!-- End Rate Modal -->
