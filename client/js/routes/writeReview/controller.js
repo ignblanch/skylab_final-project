@@ -1,7 +1,7 @@
 /* global angular */
 
 angular.module('movTv')
-  .controller('WriteReviewController', function ($scope, $http, $window, $routeParams, MediaService, CommentsService) {
+  .controller('WriteReviewController', function ($scope, $window, $routeParams, MediaService, CommentsService) {
     $scope.imdbID = $routeParams.imdbID
     $scope.author = $routeParams.author
     $scope.body = ''

@@ -5,9 +5,9 @@
       <p id="profile-name" class="profile-name-card"></p>
       <form class="form-signin">
         <span id="reauth-email" class="reauth-email"></span>
-        <input type="email" id="inputEmail" class="form-control" placeholder="Username" required autofocus>
-        <input type="password" id="inputPassword" class="form-control" placeholder="Password" required>
-        <button class="btn btn-lg btn-success btn-block btn-signin" type="submit">Singup</button>
+        <input type="text" ng-model="user.username" class="form-control" placeholder="Username" required autofocus>
+        <input type="password" ng-model="user.password" class="form-control" placeholder="Password" required>
+        <button class="btn btn-lg btn-success btn-block btn-signin" ng-click="registerUser(user)">Singup</button>
       </form><!-- /form -->
       <p class="signup">Already have an account? <a data-toggle="modal" data-target="#loginModal"> Login</a></p>
   </div><!-- /card-container -->

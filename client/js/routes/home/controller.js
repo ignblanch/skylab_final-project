@@ -1,7 +1,7 @@
 /* global angular */
 
 angular.module('movTv')
-  .controller('SearchController', function ($scope, $http, $location) {
+  .controller('SearchController', function ($scope, $location) {
     $scope.query = ''
 
     $scope.getQuery = function () {

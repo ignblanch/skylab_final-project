@@ -16,7 +16,7 @@
 </head>
 
 <body>
-  <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+  <nav ng-controller="NavbarController" class="navbar navbar-default navbar-fixed-top" role="navigation">
     <div class="container">
       <div class="navbar-header">
         <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
@@ -33,7 +33,7 @@
             <a href="/"><span class="glyphicon glyphicon-home" aria-hidden="true"></span> Home</a>
           </li>
           <li>
-            <a href="#!/profile/defaultUser">Profile</a>
+            <a ng-show="loggedUser" href="#!/profile/defaultUser">Profile</a>
           </li>
           <li id="nav-mag">
             <div class="search" ng-controller="SearchController">
@@ -46,20 +46,19 @@
         </ul><!-- End navbar left -->
 
         <ul class="nav navbar-nav navbar-right">
-            <li ng-if="!loggedIn">
-              <a data-toggle="modal" data-target="#loginModal"><span class="glyphicon glyphicon-log-in"></span> Login</a>
+            <li ng-show="!loggedUser">
+              <a href="#!/login" ng-show="!$rootScope.loggedUser"><span class="glyphicon glyphicon-log-in"></span> Login</a>
             </li>
-            <li ng-if="!loggedIn">
+            <li ng-show="!loggedUser">
               <a href="#!/signup" > <i class="icon-chevron-sign-up"></i>Signup</a>
             </li>
-            <li ng-if="loggedIn">
-              <a href="#!/profile/:user">{{user}}</a>
+            <li ng-show="loggedUser">
+              <a href="#!/profile/$rootscope.loggedUser">{{loggedUser}}</a>
             </li>
-            <li ng-if="loggedIn">
-              <a ng-click="logOut()"><span class="glyphicon glyphicon-log-in"></span> Logout</a>
+            <li ng-show="loggedUser">
+              <a ng-click="logout()"><span class="glyphicon glyphicon-log-in"></span> Logout</a>
             </li>
         </ul> <!-- End navbar-right -->
-
       </div>
     </div>
   </nav> <!--End nav-->    
@@ -70,30 +69,13 @@
 
   </div><!-- End main container-->
 
-  <!-- Modal -->
-  <div id="loginModal" class="modal fade" role="dialog">
-    <div class="modal-dialog">
-        <div class="card card-container">
-            <img id="profile-img" class="profile-img-card" src="assets/images/avatar_user.png" />
-            <p id="profile-name" class="profile-name-card"></p>
-            <form class="form-signup">
-              <span id="reauth-email" class="reauth-email"></span>
-              <input type="text" id="newUser" class="form-control" placeholder="Username" required autofocus>
-              <input type="password" id="newPassword" class="form-control" placeholder="Password" required>
-              <button class="btn btn-lg btn-success btn-block btn-signup" type="submit">Login</button>
-            </form><!-- /form -->
-            <p class="signup"><a href="#" data-dismiss="modal" class="pull-right">Dismiss</a></p>
-        </div><!-- End card-container -->         
-    </div>
-  </div><!-- End Modal -->
-
   <footer class="footer row-footer">
     <div class="container text-center">
       <div class="row">
         <div class="col-xs-12 col-sm-6">
           <ul class="nav navbar-nav list-unstyled">
             <li><a href="#!/">Home</a></li>
-            <li><a href="#!/profile/defaultUser">Profile</a></li>
+            <li><a href="#!/profile/$rootScope.loggedUser">Profile</a></li>
           </ul>
         </div>
         <div class="col-xs-12 col-sm-3 col-sm-offset-3">
@@ -114,10 +96,19 @@
   <script type="text/javascript" src="bower_components/angular/angular.js"></script>
   <!--Angular Route -->
   <script type="text/javascript" src="bower_components/angular-route/angular-route.js"></script>
+  <!-- Angular-jwt-->
+  <script src="/bower_components/angular-jwt/dist/angular-jwt.min.js"></script>
+  <!-- Angular toastr -->
+  <script src="/bower_components/angular-toastr/dist/angular-toastr.tpls.min.js"></script>
   <!-- Main module -->
   <script src="js/app.js"></script>
   <!-- Services -->
-  <script src="js/services/services.js"></script>
+  <script src="js/services/AuthService.js"></script>
+  <script src="js/services/AuthInterceptor.js"></script>
+  <script src="js/services/StorageService.js"></script>
+  <script src="js/services/CommentsService.js"></script>
+  <script src="js/services/FavoritesService.js"></script>
+  <script src="js/services/MediaService.js"></script>
   <!--Jquery -->
   <script type="text/javascript" src="bower_components/jquery/dist/jquery.js"></script>
   <!-- Boostrap -->
@@ -141,6 +132,14 @@
   <!-- Write Review page -->
   <script src="js/routes/writeReview/controller.js"></script>
   <script src="js/routes/writeReview/index.js"></script>
+  <!-- Signup page -->
+  <script src="js/routes/signup/controller.js"></script>
+  <script src="js/routes/signup/index.js"></script>
+  <!-- Login  -->
+  <script src="js/routes/login/controller.js"></script>
+  <script src="js/routes/login/index.js"></script>
+  <!-- Navbar -->
+  <script src="js/routes/index/NavbarController.js"></script>
 </body>
 
 </html>

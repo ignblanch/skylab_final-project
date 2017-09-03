@@ -1,7 +1,7 @@
 /* global angular */
 
 angular.module('movTv')
-  .controller('DetailController', function ($scope, $http, $routeParams, MediaService, FavoritesService, CommentsService) {
+  .controller('DetailController', function ($scope, $routeParams, MediaService, FavoritesService, CommentsService) {
     $scope.imdbID = $routeParams.imdbID
     $scope.user = 'defaultUser'
     getFavorite()

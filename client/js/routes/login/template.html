@@ -1,0 +1,13 @@
+<div class="container">
+  <div class="card card-container">
+      <h3 class="signup">Login</h3>
+      <img id="profile-img" class="profile-img-card" src="assets/images/avatar_user.png" />
+      <p id="profile-name" class="profile-name-card"></p>
+      <form class="form-signup" method="POST" action="#!/login" novalidate="novalidate" ng-submit="doLogin($event)">
+        <input ng-model="username" type="text" id="newUser" class="form-control" placeholder="Username" required autofocus>
+        <input ng-model="password" type="password" id="newPassword" class="form-control" placeholder="Password" required>
+        <button type="submit" class="btn btn-lg btn-success btn-block btn-signup">Login</button>
+      </form><!-- /form -->
+      <p class="signup">Don't have an account? <a href="#!/signup"> Signup</a></p>
+  </div><!-- /card-container -->
+</div><!-- /container -->
