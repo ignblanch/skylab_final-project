@@ -1,9 +1,13 @@
 /* global angular */
 
 angular.module('movTv')
-  .controller('WriteReviewController', function ($scope, $window, $routeParams, MediaService, CommentsService) {
+  .controller('WriteReviewController', function ($scope, $rootScope, AuthService, toastr, $location, $window, $routeParams, MediaService, CommentsService) {
+    if (!AuthService.isLoggedIn()) {
+      toastr.error('You need to sign in to add reviews')
+    }
+
     $scope.imdbID = $routeParams.imdbID
-    $scope.author = $routeParams.author
+    $scope.author = $rootScope.loggedUser
     $scope.body = ''
     $scope.commentTitle = ''
     $scope.stars = 0

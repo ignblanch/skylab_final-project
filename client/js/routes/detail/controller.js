@@ -1,9 +1,9 @@
 /* global angular */
 
 angular.module('movTv')
-  .controller('DetailController', function ($scope, $routeParams, MediaService, FavoritesService, CommentsService) {
+  .controller('DetailController', function ($scope, $rootScope, toastr, AuthService, $routeParams, MediaService, FavoritesService, CommentsService) {
     $scope.imdbID = $routeParams.imdbID
-    $scope.user = 'defaultUser'
+    $scope.user = $rootScope.loggedUser
     getFavorite()
     $scope.starsCount = {5: 0, 4: 0, 3: 0, 2: 0, 1: 0}
 
@@ -19,6 +19,9 @@ angular.module('movTv')
     })
 
     function addFavorite (stars) {
+      if (!AuthService.isLoggedIn()) {
+        return toastr.error('Sorry you need an account to add Favorites!')
+      }
       $scope.stars = stars
       $scope.isFavorite = true
       FavoritesService.addFavorite($scope.user, $scope.imdbID, $scope.stars)

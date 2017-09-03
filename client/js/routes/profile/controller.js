@@ -1,8 +1,8 @@
 /* global angular */
 
 angular.module('movTv')
-  .controller('ProfileController', function ($scope, $routeParams, FavoritesService, CommentsService, MediaService) {
-    $scope.user = $routeParams.user
+  .controller('ProfileController', function ($scope, $rootScope, $routeParams, FavoritesService, CommentsService, MediaService) {
+    $scope.user = $rootScope.loggedUser
     loadFavorites()
     loadComments()
     $scope.editFavId = ''

@@ -5,6 +5,7 @@ angular.module('movTv')
     $routeProvider
       .when('/review/:imdbID/:author', {
         templateUrl: 'js/routes/writeReview/template.html',
-        controller: 'WriteReviewController'
+        controller: 'WriteReviewController',
+        secure: true
       })
   })

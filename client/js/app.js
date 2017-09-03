@@ -14,7 +14,7 @@ angular.module('movTv', ['ngRoute', 'toastr', 'angular-jwt'])
       AuthService.setCredentials(token)
     }
 
-    $rootScope.$on('$routeChangeStart', function (event, next, current) {
+    $rootScope.$on('$routeChangeStart', function (event, next, toastr, current) {
       console.log('route has changed')
       if (next && next.secure) {
         console.log('this route is secured!!')

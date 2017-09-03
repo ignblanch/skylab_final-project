@@ -5,6 +5,7 @@ angular.module('movTv')
     function registerUser (user) {
       const url = `register`
       return $http.post(url, user)
+      .then(res => res.data)
     }
 
     function isLoggedIn () {
@@ -26,6 +27,7 @@ angular.module('movTv')
           setCredentials(data.token)
           return data.success
         })
+        .catch(data => data.error)
     }
 
     function logout () {

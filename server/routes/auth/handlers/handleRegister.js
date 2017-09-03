@@ -7,9 +7,9 @@ function handleRegister (req, res) {
 
   User.register(user, password, err => {
     if (err) {
-      return res.json({ success: false, msg: 'Username already exists.' })
+      return res.json({ success: false, msg: 'Sorry. Username already exists.' })
     }
-    res.json({ success: true, msg: 'Successful created new user.' })
+    res.json({ success: true, msg: 'New user created correctly' })
   })
 }
 
