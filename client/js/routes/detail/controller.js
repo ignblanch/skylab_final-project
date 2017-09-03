@@ -23,7 +23,7 @@ angular.module('movTv')
       if (!AuthService.isLoggedIn()) {
         return toastr.error('Sorry you need an account to use this feature!')
       }
-      $scope.stars = stars
+      $scope.stars = stars || 0
       $scope.isFavorite = true
       FavoritesService.addFavorite($scope.user, $scope.imdbID, $scope.stars)
       .then((response) => console.log(response))
