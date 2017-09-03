@@ -5,6 +5,7 @@ angular.module('movTv')
     $scope.imdbID = $routeParams.imdbID
     $scope.user = $rootScope.loggedUser
     getFavorite()
+    loadCommentsByFilm()
     $scope.starsCount = {5: 0, 4: 0, 3: 0, 2: 0, 1: 0}
 
     MediaService.searchDetail($scope.imdbID)
@@ -20,7 +21,7 @@ angular.module('movTv')
 
     function addFavorite (stars) {
       if (!AuthService.isLoggedIn()) {
-        return toastr.error('Sorry you need an account to add Favorites!')
+        return toastr.error('Sorry you need an account to use this feature!')
       }
       $scope.stars = stars
       $scope.isFavorite = true
@@ -48,25 +49,31 @@ angular.module('movTv')
       })
     }
 
-    CommentsService.getCommentsByFilm($scope.imdbID)
-    .then(function (response) {
-      $scope.Comments = response.data
-      $scope.totalRatings = $scope.Comments.length
-      $scope.Comments.forEach(function (comment) {
-        switch (comment.stars) {
-          case 5: $scope.starsCount[5]++; break
-          case 4: $scope.starsCount[4]++; break
-          case 3: $scope.starsCount[3]++; break
-          case 2: $scope.starsCount[2]++; break
-          case 1: $scope.starsCount[1]++
-        }
+    function loadCommentsByFilm () {
+      CommentsService.getCommentsByFilm($scope.imdbID)
+      .then(function (response) {
+        $scope.Comments = response.data
+        $scope.totalRatings = $scope.Comments.length
+        $scope.Comments.forEach(function (comment) {
+          switch (comment.stars) {
+            case 5: $scope.starsCount[5]++; break
+            case 4: $scope.starsCount[4]++; break
+            case 3: $scope.starsCount[3]++; break
+            case 2: $scope.starsCount[2]++; break
+            case 1: $scope.starsCount[1]++
+          }
+        })
+        console.log($scope.Comments)
       })
-      console.log($scope.Comments)
-    })
+    }
 
     function markSpoiler (commentId) {
-      CommentsService.markCommentSpoiler(commentId)
-        .then(console.log('comment marked as spoiler'))
+      if (!AuthService.isLoggedIn()) {
+        return toastr.error('Sorry you need an account to use this feature!')
+      } else {
+        CommentsService.markCommentSpoiler(commentId)
+        .then(loadCommentsByFilm())
+      }
     }
 
     $scope.addFavorite = addFavorite

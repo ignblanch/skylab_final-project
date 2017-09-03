@@ -1,3 +1,5 @@
+/* global angular */
+
 angular.module('movTv')
   .factory('FavoritesService', function ($http) {
     function getFavoritesByUser (user) {

@@ -35,7 +35,7 @@
             <a href="/"><span class="glyphicon glyphicon-home" aria-hidden="true"></span> Home</a>
           </li>
           <li>
-            <a ng-show="loggedUser" href="#!/profile/defaultUser">Profile</a>
+            <a ng-show="loggedUser" href="#!/profile/{{loggedUser}}">Profile</a>
           </li>
           <li id="nav-mag">
             <div class="search" ng-controller="SearchController">
@@ -55,7 +55,7 @@
               <a href="#!/signup" > <i class="icon-chevron-sign-up"></i>Signup</a>
             </li>
             <li ng-show="loggedUser">
-              <a href="#!/profile/$rootscope.loggedUser">{{loggedUser}}</a>
+              <a href="#!/profile/{{loggedUser}}">{{loggedUser}}</a>
             </li>
             <li ng-show="loggedUser">
               <a ng-click="logout()"><span class="glyphicon glyphicon-log-in"></span> Logout</a>
