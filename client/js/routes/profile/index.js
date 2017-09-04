@@ -5,6 +5,7 @@ angular.module('movTv')
     $routeProvider
       .when('/profile/:user', {
         templateUrl: 'js/routes/profile/template.html',
-        controller: 'ProfileController'
+        controller: 'ProfileController',
+        secure: true
       })
   })
