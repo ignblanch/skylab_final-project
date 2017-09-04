@@ -9,6 +9,7 @@ angular.module('movTv')
     function logout () {
       console.log('click')
       AuthService.logout()
+      toastr.error('You have successfully logged out')
       $location.path('/')
     }
 

@@ -8,7 +8,7 @@ angular.module('movTv', ['ngRoute', 'toastr', 'angular-jwt'])
     $routeProvider
       .otherwise('/login')
   })
-  .run(function ($rootScope, $location, StorageService, AuthService) {
+  .run(function ($rootScope, $location, StorageService, toastr, AuthService) {
     if (AuthService.isLoggedIn()) {
       const token = StorageService.getToken()
       AuthService.setCredentials(token)

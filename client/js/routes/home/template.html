@@ -1,6 +1,6 @@
 <div class="foreground">
   <div class="container container-fluid home-container text-center">
-    <img id="home-logo" src="assets/images/logo05.png" alt="logo">
+    <div id="home-logo">movTv</div>
       <div class="row">
         <div class="col-md-10 col-md-offset-1">
           <h2>Search your favorite movies and tv shows</h2>
@@ -14,11 +14,12 @@
                 </span>
               </div>
             </form>
+            <div ng-show="!loggedUser">
             <form action="#!/signup">
             <h4>Create an account and join our community -track your content add ratings and reviews</h4>
             <button type="submit" class="btn btn-danger btn-signup" id="home-button" >Create account</button>
             </form>
-            <p>Already have an account? <a data-toggle="modal" data-target="#loginModal">Login</a></p>
+            <p>Already have an account? <a href="#!/login">Login</a></p>
         </div>
       </div><!--End row-->
       <div class="row">
@@ -35,22 +36,6 @@
           <p>Keep a collection of your shows and movies in your personal profile together with your ratings and reviews so that you keep track of what shows and movies you've watched or intend to watch next, all your published reviews all in one place that you can easily share with others</p>
         </div>  
       </div><!--End row-->
+
   </div>
 </div>
-
-<!-- Modal -->
-<div id="loginModal" class="modal fade" role="dialog">
-  <div class="modal-dialog">
-      <div class="card card-container">
-        <img id="profile-img" class="profile-img-card" src="assets/images/avatar_user.png" />
-        <p id="profile-name" class="profile-name-card"></p>
-        <form class="form-signup">
-          <span id="reauth-email" class="reauth-email"></span>
-          <input type="text" id="newUser" class="form-control" placeholder="Username" required autofocus>
-          <input type="password" id="newPassword" class="form-control" placeholder="Password" required>
-          <button class="btn btn-lg btn-success btn-block btn-signup" type="submit">Login</button>
-        </form><!-- /form -->
-        <p class="signup"><a href="#" data-dismiss="modal" class="pull-right">Dismiss</a></p>
-      </div><!-- /card-container -->         
-  </div>
-</div><!-- End Modal -->

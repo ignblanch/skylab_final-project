@@ -7,6 +7,11 @@ _* {
 [x-ng-click] {
   cursor: pointer; }
 
+.nav-logo {
+  font-family: 'Pacifico', cursive;
+  font-size: 24px;
+  color: #0CE3AC !important; }
+
 html {
   position: relative;
   min-height: 100%; }
@@ -20,12 +25,11 @@ footer {
   width: 100%;
   height: 100px; }
 
-#nav-logo {
-  margin-top: -12px;
-  max-height: 50px; }
-
 #home-logo {
-  margin-top: 10px;
+  font-family: 'Pacifico', cursive;
+  font-size: 120px;
+  color: #0CE3AC !important;
+  margin-top: 20px;
   max-height: 200px; }
 
 .foreground:before {
@@ -53,7 +57,7 @@ footer {
 
 #search {
   float: right;
-  margin-top: 9px;
+  margin-top: 0px;
   width: 250px; }
 
 .search {
