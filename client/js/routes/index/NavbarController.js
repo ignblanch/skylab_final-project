@@ -1,7 +1,7 @@
 /* global angular */
 
 angular.module('movTv')
-  .controller('NavbarController', function ($scope, AuthService, toastr, $rootScope, $location) {
+  .controller('NavbarController', function ($scope, sweetAlert, AuthService, toastr, $rootScope, $location) {
     $scope.isLogged = AuthService.isLoggedIn()
     // console.log($scope.isLoggedIn)
     console.log($rootScope.loggedUser)
@@ -9,7 +9,10 @@ angular.module('movTv')
     function logout () {
       console.log('click')
       AuthService.logout()
-      toastr.error('You have successfully logged out')
+      sweetAlert.swal({
+        type: 'error',
+        text: `You have logged out correcly`
+      })
       $location.path('/')
     }
 

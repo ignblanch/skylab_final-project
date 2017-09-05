@@ -1,7 +1,7 @@
 /* global angular */
 
 angular.module('movTv')
-  .controller('DetailController', function ($scope, $rootScope, toastr, AuthService, $routeParams, MediaService, FavoritesService, CommentsService) {
+  .controller('DetailController', function ($scope, $window, $location, sweetAlert, $rootScope, toastr, AuthService, $routeParams, MediaService, FavoritesService, CommentsService) {
     $scope.imdbID = $routeParams.imdbID
     $scope.user = $rootScope.loggedUser
     getFavorite()
@@ -21,18 +21,46 @@ angular.module('movTv')
 
     function addFavorite (stars) {
       if (!AuthService.isLoggedIn()) {
-        return toastr.error('Sorry you need an account to use this feature!')
+        $scope.stars = 0
+        sweetAlert.swal({
+          title: 'Please Login',
+          text: 'You need an account to do this',
+          type: 'error',
+          showCancelButton: true,
+          confirmButtonColor: '#3085d6',
+          cancelButtonColor: '#d33',
+          confirmButtonText: 'Go to Login/signup',
+          cancelButtonText: 'Cancel'
+        }).then(function () {
+          $window.location.href = '#!/login'
+        }, function (dismiss) {
+          console.log('cancelled')
+        })
+      } else {
+        $scope.stars = stars || 0
+        $scope.isFavorite = true
+        FavoritesService.addFavorite($scope.user, $scope.imdbID, $scope.stars)
+        .then((response) => console.log(response))
       }
-      $scope.stars = stars || 0
-      $scope.isFavorite = true
-      FavoritesService.addFavorite($scope.user, $scope.imdbID, $scope.stars)
-      .then((response) => console.log(response))
     }
 
     function removeFavorite () {
-      $scope.isFavorite = false
-      FavoritesService.removeFavorite($scope.user, $scope.imdbID)
-      .then((response) => console.log(response))
+      sweetAlert.swal({
+        title: 'Delete FAvorite',
+        text: 'Are you sure you want to delete this from your collection?',
+        type: 'error',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Confirm',
+        cancelButtonText: 'Cancel'
+      }).then(function () {
+        $scope.isFavorite = false
+        FavoritesService.removeFavorite($scope.user, $scope.imdbID)
+          .then((response) => console.log(response))
+      }, function (dismiss) {
+        console.log('cancelled')
+      })
     }
 
     function getFavorite () {
@@ -69,10 +97,65 @@ angular.module('movTv')
 
     function markSpoiler (commentId) {
       if (!AuthService.isLoggedIn()) {
-        return toastr.error('Sorry you need an account to use this feature!')
+        sweetAlert.swal({
+          title: 'Please Login',
+          text: 'You need an account to do this',
+          type: 'error',
+          showCancelButton: true,
+          confirmButtonColor: '#3085d6',
+          cancelButtonColor: '#d33',
+          confirmButtonText: 'Go to Login/signup',
+          cancelButtonText: 'Cancel'
+        }).then(function () {
+          $window.location.href = '#!/login'
+        }, function (dismiss) {
+          console.log('cancelled')
+        })
       } else {
         CommentsService.markCommentSpoiler(commentId)
         .then(loadCommentsByFilm())
+      }
+    }
+
+    function writeReview () {
+      if (!AuthService.isLoggedIn()) {
+        sweetAlert.swal({
+          title: 'Please Login',
+          text: 'You need an account to do this',
+          type: 'error',
+          showCancelButton: true,
+          confirmButtonColor: '#3085d6',
+          cancelButtonColor: '#d33',
+          confirmButtonText: 'Go to Login/signup',
+          cancelButtonText: 'Cancel'
+        }).then(function () {
+          $window.location.href = '#!/login'
+        }, function (dismiss) {
+          console.log('cancelled')
+        })
+      } else {
+        $location.path(`/review/${$scope.imdbID}/${$scope.user}`)
+      }
+    }
+
+    function seeProfile (author) {
+      if (!AuthService.isLoggedIn()) {
+        sweetAlert.swal({
+          title: 'Please Login',
+          text: 'You need an account to do this',
+          type: 'error',
+          showCancelButton: true,
+          confirmButtonColor: '#3085d6',
+          cancelButtonColor: '#d33',
+          confirmButtonText: 'Go to Login/signup',
+          cancelButtonText: 'Cancel'
+        }).then(function () {
+          $window.location.href = '#!/login'
+        }, function (dismiss) {
+          console.log('cancelled')
+        })
+      } else {
+        $location.path(`/profile/${author}`)
       }
     }
 
@@ -80,4 +163,6 @@ angular.module('movTv')
     $scope.removeFavorite = removeFavorite
     $scope.getFavorite = getFavorite
     $scope.markSpoiler = markSpoiler
+    $scope.writeReview = writeReview
+    $scope.seeProfile = seeProfile
   })

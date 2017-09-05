@@ -3,10 +3,10 @@
   <li ng-class="{active: movies && tv}"><a ng-click="tv=true; movies=true; comments=false" ng-class="{active: movies&&tv}">All</a></li>
   <li ng-class="{active:tv && !movies &&! comments}"><a ng-click="tv=true; movies=false; comments=false">TvShows</a></li>
   <li ng-class="{active: movies && !tv && !comments}"><a ng-click="tv=false; movies=true; comments=false">Movies</a></li>
-  <li ng-class="{active: !movies && !tv}"><a ng-click="tv=false; movies=false; comments=true">Your Reviews</a></li>
+  <li ng-class="{active: !movies && !tv}"><a ng-click="tv=false; movies=false; comments=true">User's Reviews</a></li>
 </ul>
   <div ng-show="tv" class="row">
-    <h4>User's Tv Shows<hr></h4>
+    <h4>{{user}}'s Tv Shows<hr></h4>
     <div id="thumbs-container">
         <div ng-repeat="favorite in FullFavorites | orderBy:'favId'" ng-if="favorite.Type == 'series'" class="thumbnail col-xs-12 col-md-3">
           <img ng-style="{'background-image':'url({{favorite.Poster}}})'}">
@@ -24,7 +24,7 @@
 </div>
 
 <div ng-show="movies" class="row">
-  <h4>User's Movies<hr></h4>
+  <h4>{{user}}'s Movies<hr></h4>
     <div id="thumbs-container"> 
        <div ng-repeat="favorite in FullFavorites | orderBy:'favId'" ng-if="favorite.Type == 'movie'" class="thumbnail col-xs-12 col-md-3">
           <img ng-style="{'background-image':'url({{favorite.Poster}}})'}">
@@ -41,7 +41,7 @@
   </div>
   <div class="comments-container container">
   <div ng-show="comments" class="row">
-  <h4>User's Reviews<hr></h4>
+  <h4>{user}'s Reviews<hr></h4>
     <ul id="comments-list">
     <div ng-if="Comments.length===0">No reviews yet </div>
     <li ng-repeat="comment in Comments" class="comment">

@@ -1,7 +1,7 @@
 /* global angular */
 
 angular.module('movTv')
-  .controller('ProfileController', function ($scope, $rootScope, $routeParams, FavoritesService, CommentsService, MediaService) {
+  .controller('ProfileController', function ($scope, sweetAlert, $rootScope, $routeParams, FavoritesService, CommentsService, MediaService) {
     $scope.user = $routeParams.user
     console.log($scope.users)
     loadFavorites()
@@ -26,8 +26,29 @@ angular.module('movTv')
     }
 
     function removeFavorite (imdbID) {
-      FavoritesService.removeFavorite($scope.user, imdbID)
-      .then(loadFavorites())
+      if ($scope.user !== $rootScope.loggedUser) {
+        sweetAlert.swal({
+          type: 'error',
+          text: `Sorry you can't edit another user's profile!`
+        })
+      } else {
+        sweetAlert.swal({
+          title: 'Delete FAvorite',
+          text: 'Are you sure you want to delete this from your collection?',
+          type: 'error',
+          showCancelButton: true,
+          confirmButtonColor: '#3085d6',
+          cancelButtonColor: '#d33',
+          confirmButtonText: 'Confirm',
+          cancelButtonText: 'Cancel'
+        }).then(function () {
+          $scope.isFavorite = false
+          FavoritesService.removeFavorite($scope.user, imdbID)
+            .then(loadFavorites())
+        }, function (dismiss) {
+          console.log('cancelled')
+        })
+      }
     }
 
     function setEditFavId (favId) {
@@ -35,9 +56,16 @@ angular.module('movTv')
     }
 
     function editStarsFav (newStars) {
-      console.log($scope.editFavId)
-      FavoritesService.editStarsFav($scope.editFavId, newStars)
-      .then(loadFavorites())
+      if ($scope.user !== $rootScope.loggedUser) {
+        sweetAlert.swal({
+          type: 'error',
+          text: `Sorry you can't edit another user's profile!`
+        })
+      } else {
+        console.log($scope.editFavId)
+        FavoritesService.editStarsFav($scope.editFavId, newStars)
+        .then(loadFavorites())
+      }
     }
 
     function loadComments () {

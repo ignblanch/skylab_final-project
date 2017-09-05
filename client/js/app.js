@@ -1,6 +1,6 @@
 /* global angular */
 
-angular.module('movTv', ['ngRoute', 'toastr', 'angular-jwt'])
+angular.module('movTv', ['ngRoute', 'toastr', 'angular-jwt', '19degrees.ngSweetAlert2'])
   .config(function ($httpProvider) {
     $httpProvider.interceptors.push('AuthInterceptor')
   })
