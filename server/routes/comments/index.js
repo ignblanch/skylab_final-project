@@ -11,6 +11,6 @@ router.post('/:author/:commentTitle/:stars/:imdbID/:body/:spoiler', addComment)
 router.get('/:imdbID', getCommentsByFilm)
 router.get('/author/:author', getCommentsByAuthor)
 router.delete('/:id', removeComment)
-router.post('/:id', markCommentSpoiler)
+router.post('/spoiler/:id', markCommentSpoiler)
 
 module.exports = router

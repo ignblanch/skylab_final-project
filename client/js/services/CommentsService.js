@@ -22,7 +22,7 @@ angular.module('movTv')
     }
 
     function markCommentSpoiler (id) {
-      const url = `comments/${id}`
+      const url = `comments/spoiler/${id}`
       return $http.post(url)
     }
 

@@ -110,6 +110,7 @@ angular.module('movTv')
       } else {
         CommentsService.markCommentSpoiler(commentId)
         .then(loadCommentsByFilm())
+        //.then($window.location.reload())
       }
     }
 
