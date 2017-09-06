@@ -471,7 +471,7 @@ p {
     #thumbs-container .thumbnail a {
       text-decoration: none;
       cursor: default; }
-    #thumbs-container .thumbnail #thumb-stars {
+    #thumbs-container .thumbnail .thumb-stars {
       cursor: pointer; }
     #thumbs-container .thumbnail button {
       width: 33%;

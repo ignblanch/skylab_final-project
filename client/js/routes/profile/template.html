@@ -13,7 +13,7 @@
           <div ng-repeat="favorite in FullFavorites | orderBy:'favId'" ng-if="favorite.Type == 'series'" class="thumbnail col-xs-12 col-md-3">
             <img ng-style="{'background-image':'url({{favorite.Poster}}})'}">
             <div class="caption text-center">
-              <h4>{{favorite.Title}}<a id="thumb-stars" ng-click="setEditFavId(favorite.favId)" data-toggle="modal" data-target="#editStarsModal"><span class="pull-right">{{(favorite.stars)===0? 'N/A': favorite.stars}} <span class="glyphicon glyphicon-star" id="star" aria-hidden="true"></span></span></a></h4>
+              <h4>{{favorite.Title}}<a class="thumb-stars" ng-click="setEditFavId(favorite.favId)" data-toggle="modal" data-target="#editStarsModal"><span class="pull-right">{{(favorite.stars)===0? 'N/A': favorite.stars}} <span class="glyphicon glyphicon-star" id="star" aria-hidden="true"></span></span></a></h4>
               <div class="btn-group btn-thumb" role="group">
               <button class="btn btn-info btn-signup" id="addFav"><span class="glyphicon glyphicon-info-sign"></span><a href="#!/detail/{{favorite.imdbID}}"> Details</a></button>
               <button class="btn btn-info btn-signup" id="removeFav"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span><a ng-click="removeFavorite(favorite.imdbID)"> Remove</a></button>
@@ -32,7 +32,7 @@
          <div ng-repeat="favorite in FullFavorites | orderBy:'favId'" ng-if="favorite.Type == 'movie'" class="thumbnail col-xs-12 col-md-3">
             <img ng-style="{'background-image':'url({{favorite.Poster}}})'}">
             <div class="caption text-center">
-              <h4>{{favorite.Title}}<a ng-click="setEditFavId(favorite.favId)" data-toggle="modal" data-target="#editStarsModal"><span class="pull-right">{{(favorite.stars)===0? 'N/A': favorite.stars}} <span class="glyphicon glyphicon-star" id="star" aria-hidden="true"></span></span></a></h4>
+              <h4>{{favorite.Title}}<a class="thumb-stars" ng-click="setEditFavId(favorite.favId)" data-toggle="modal" data-target="#editStarsModal"><span class="pull-right">{{(favorite.stars)===0? 'N/A': favorite.stars}} <span class="glyphicon glyphicon-star" id="star" aria-hidden="true"></span></span></a></h4>
               <div class="btn-group btn-thumb" role="group">
               <button class="btn btn-info btn-signup" id="addFav"><span class="glyphicon glyphicon-info-sign"></span><a href="#!/detail/{{favorite.imdbID}}"> Details</a></button>
               <button class="btn btn-info btn-signup" id="removeFav"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span><a ng-click="removeFavorite(favorite.imdbID)"> Remove</a></button>
