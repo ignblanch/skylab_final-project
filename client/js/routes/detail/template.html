@@ -88,7 +88,7 @@
       <p>by <a ng-click="seeProfile(comment.author)">{{comment.author}}</a><small> - {{comment.date | date : format : timezone}}</small></p>
       <p ng-show="comment.spoiler">This comment has been marked as spoiler. Click <a ng-click="comment.spoiler= false">here</a> to show</p>
       <p ng-show="!comment.spoiler">{{comment.body}}</p>
-      <button ng-click="markSpoiler(comment._id)" class="btn btn-xs btn-danger spoiler-button"><span class="glyphicon glyphicon-warning-sign"></span> Spoiler!</button>
+      <button ng-click="comment.spoiler=true; markSpoiler(comment._id)" class="btn btn-xs btn-danger spoiler-button"><span class="glyphicon glyphicon-warning-sign"></span> Spoiler!</button>
       <hr>
     </li>
   </ul>  
