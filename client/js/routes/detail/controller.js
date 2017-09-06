@@ -27,7 +27,7 @@ angular.module('movTv')
           text: 'You need an account to do this',
           type: 'error',
           showCancelButton: true,
-          confirmButtonColor: '#3085d6',
+          confirmButtonColor: '#0CE3AC',
           cancelButtonColor: '#d33',
           confirmButtonText: 'Go to Login/signup',
           cancelButtonText: 'Cancel'
@@ -50,7 +50,7 @@ angular.module('movTv')
         text: 'Are you sure you want to delete this from your collection?',
         type: 'error',
         showCancelButton: true,
-        confirmButtonColor: '#3085d6',
+        confirmButtonColor: '#0CE3AC',
         cancelButtonColor: '#d33',
         confirmButtonText: 'Confirm',
         cancelButtonText: 'Cancel'
@@ -102,7 +102,7 @@ angular.module('movTv')
           text: 'You need an account to do this',
           type: 'error',
           showCancelButton: true,
-          confirmButtonColor: '#3085d6',
+          confirmButtonColor: '#0CE3AC',
           cancelButtonColor: '#d33',
           confirmButtonText: 'Go to Login/signup',
           cancelButtonText: 'Cancel'
@@ -124,7 +124,7 @@ angular.module('movTv')
           text: 'You need an account to do this',
           type: 'error',
           showCancelButton: true,
-          confirmButtonColor: '#3085d6',
+          confirmButtonColor: '#0CE3AC',
           cancelButtonColor: '#d33',
           confirmButtonText: 'Go to Login/signup',
           cancelButtonText: 'Cancel'
@@ -145,7 +145,7 @@ angular.module('movTv')
           text: 'You need an account to do this',
           type: 'error',
           showCancelButton: true,
-          confirmButtonColor: '#3085d6',
+          confirmButtonColor: '#0CE3AC',
           cancelButtonColor: '#d33',
           confirmButtonText: 'Go to Login/signup',
           cancelButtonText: 'Cancel'

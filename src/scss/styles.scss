@@ -2,6 +2,8 @@ $unchecked-star: '\2606';
 $unchecked-color: #888;
 $checked-star: '\2605';
 $checked-color: #f2ee07;
+$main-green: #0CE3AC;
+$main-grey: #3A3C3D;
 
 _* {
   border: 1px solid red;
@@ -16,7 +18,21 @@ _* {
 .nav-logo{
   font-family: 'Pacifico', cursive;
   font-size: 24px;
-  color: #0CE3AC !important;
+  color: $main-green !important;
+}
+
+#nav-user {
+  font-size: 24px;
+}
+
+#profile-img-nav {
+  height: 50px;
+  width: 50px;
+  margin-top: 5px;
+  display: block;
+  -moz-border-radius: 50%;
+  -webkit-border-radius: 50%;
+  border-radius: 50%;
 }
 
 html {
@@ -25,21 +41,36 @@ html {
 }
 
 body {
-  margin-bottom: 100px;
+  margin-bottom: 70px;
 }
 
 footer {
   position: absolute;
   bottom: 0;
   width: 100%;
-  height: 100px; //same height as the margin to the bottom of the body
+  height: 70px; //same height as the margin to the bottom of the body
+  #copy {
+    margin-top: 15px;
+  }
+}
+
+#home-search {
+  margin-top: 50px;
+}
+
+#home-signup {
+  margin-top: 50px;
+}
+
+#headlines {
+  margin-top: 30px;
 }
 
 #home-logo {
   font-family: 'Pacifico', cursive;
-  font-size: 120px;
-  color: #0CE3AC !important;
-  margin-top: 20px;
+  font-size: 100px;
+  color: $main-green !important;
+  margin-top: 30px;
   max-height: 200px;
 }
 
@@ -110,16 +141,32 @@ footer {
   font-size: 20px;
 }
 
+#main-navbar {
+  background-color: $main-grey;
+}
+
 #nav-btn {
   height: 40px;
   position: absolute;
   left: 0;
   top: 8px;
   border-radius: 1px;
+  background-color: $main-grey;  
+  border: none;
+  &:hover {
+    background-color: #313435;
+  }
 }
 
 #nav-mag {
   font-size: 24px;
+}
+
+#nav-search {
+  background-color: $main-grey;
+  &:hover {
+    background-color: #575a5c;
+  }
 }
 
 #top-search {
@@ -332,8 +379,29 @@ p {
 .movie-container {
   padding: 20px;
   margin-top: 100px;
-  border: 1px solid white;
+  background-color: #191a1a;
+  
+  h1 {
+    font-size: 50px;
+  }
 
+  button {
+    background: transparent;
+    border: 1px solid $main-green !important;
+    color: $main-green;
+    &:hover {
+      background-color: #3A3C3D;
+    }
+  }
+
+  a {
+      text-decoration: none;
+    }
+
+  h4 {
+    margin-top: 20px;
+  }
+  
   #movie-poster {
     padding: 10px;
     display: flex;
@@ -369,6 +437,10 @@ p {
   
 }
 
+#reviews-title {
+  margin-bottom: 30px;
+}
+
 #points {
   border-radius: 100%;
   padding: 5px;
@@ -387,6 +459,13 @@ p {
   #comments-list {
     list-style: none;
     padding-left: 0px;
+  }
+  .spoiler-button {
+    background-color: transparent;
+    boder: 1px solid #E74C3C;
+    &:hover {
+      background-color: #E74C3C;
+    }
   }
 }
 
@@ -469,10 +548,6 @@ p {
   }
 }
 
-// #sort-button {
-//   padding-top: 5px;
-// }
-
 .home-container {
   margin-top: 30px;
   padding: 20px;
@@ -509,6 +584,7 @@ p {
   }
 
    #home-button {
+    background-color: $main-green;
     width: 30%;
     margin-bottom: 10px;
     z-index: 1;
@@ -519,27 +595,46 @@ p {
   }
 }
 
-
 #thumbs-container {
   display: flex;
   flex-wrap: wrap;
   justify-content: flex-start;
 
   .thumbnail {
-    border: 0 none;
-    box-shadow: none;
+    border:0 none;
+    box-shadow:0;
+    border-radius:0;
     img {
+      border: 0 none;
+      box-shadow: none;
+      border-radius:0;
       height: 400px;
       width: 95%;
       background-size: cover;
       background-position: center center;
     }
+    a {
+      text-decoration: none;
+      cursor: default; 
+    }
+
+    #thumb-stars {
+      cursor: pointer;
+    }
+
     button {
       width:33%;
+      background-color: transparent;
+      border: 1px solid $main-green;
+      color: $main-green;
+       &:hover {
+        background-color: #3A3C3D;
+      }
     }
     .btn-thumb {
       width: 100%;
     }
+
     p {
     height: 200px;
     overflow: hidden;
@@ -549,6 +644,12 @@ p {
 
 .review-container {
   margin-top: 100px;
+}
+
+#review-button {
+  background: transparent;
+  border: 1px solid $main-green !important;
+  color: $main-green;
 }
 
 #comment-title {

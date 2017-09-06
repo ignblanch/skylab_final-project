@@ -25,7 +25,7 @@
       <div class="checkbox">
         <label><input type="checkbox" ng-model="spoiler"><i class="fa fa-exclamation-triangle" aria-hidden="true"></i>This review contains spoilers</label>
       </div>
-      <button ng-disabled="reviewForm.$invalid" ng-click="postComment()" type="submit" class="btn btn-block btn-info btn-signup">Publish Review</button>
+      <button id="review-button" ng-disabled="reviewForm.$invalid" ng-click="postComment()" type="submit" class="btn btn-block btn-info btn-signup">Publish Review</button>
       <p><a href="#!/detail/{{imdbID}}">Cancel</a></p>
       <p>Fields marked * are required</p>
     </form>

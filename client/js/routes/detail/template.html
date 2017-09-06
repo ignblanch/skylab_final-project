@@ -12,8 +12,8 @@
           <li><p>Created by: {{media.Writer}}</p></li>
           <li><p>{{media.Plot}}</p></li>
         </ul>
-        <h3>IMDB RATING:<span id="points">{{+((media.imdbRating)/2).toFixed(1)}}</span></h3>
-        <h3 id="rate-movie">YOUR RATING:<span ng-show="stars" id="points">{{stars.toFixed(1)}}</span><span ng-show="!stars" id="points">N/A</span></h3>
+        <h4>IMDB RATING:<span id="points">{{+((media.imdbRating)/2).toFixed(1)}}</span></h4>
+        <h4 id="rate-movie">YOUR RATING:<span ng-show="stars" id="points">{{stars.toFixed(1)}}</span><span ng-show="!stars" id="points">N/A</span></h4>
         <p><a ng-href="http://www.imdb.com/title/{{media.imdbID}}/" target="_blank">View on imdb <span class="glyphicon glyphicon-new-window" aria-hidden="true"></span></a></p>
       </div>
       <div class="col-xs-12 col-md-3 fav-buttons">
@@ -79,7 +79,7 @@
   </div><!-- End Fav Modal -->
 
 <div class="comments-container container">
-<h2>User Reviews</h2>
+<h2 id="reviews-title">User Reviews</h2>
 
   <ul id="comments-list">
     <div ng-if="Comments.length===0">No reviews for this series yet <a ng-click="writeReview()">add yours now</a></div>
@@ -88,7 +88,7 @@
       <p>by <a ng-click="seeProfile(comment.author)">{{comment.author}}</a><small> - {{comment.date | date : format : timezone}}</small></p>
       <p ng-show="comment.spoiler">This comment has been marked as spoiler. Click <a ng-click="comment.spoiler= false">here</a> to show</p>
       <p ng-show="!comment.spoiler">{{comment.body}}</p>
-      <button ng-click="markSpoiler(comment._id)" class="btn btn-xs btn-danger"><span class="glyphicon glyphicon-warning-sign"></span> Spoiler!</button>
+      <button ng-click="markSpoiler(comment._id)" class="btn btn-xs btn-danger spoiler-button"><span class="glyphicon glyphicon-warning-sign"></span> Spoiler!</button>
       <hr>
     </li>
   </ul>  

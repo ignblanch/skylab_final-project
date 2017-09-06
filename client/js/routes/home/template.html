@@ -1,9 +1,9 @@
 <div class="foreground">
   <div class="container container-fluid home-container text-center">
     <div id="home-logo">movTv</div>
-      <div class="row">
+      <div id="home-search" class="row">
         <div class="col-md-10 col-md-offset-1">
-          <h2>Search your favorite movies and tv shows</h2>
+          <h3>Search your favorite movies and tv shows</h3>
             <form ng-submit="getQuery()" id="custom-search-input">
               <div class="input-group col-md-12">
                 <input type="text" ng-model="query" class="form-control" placeholder="Search" />
@@ -14,26 +14,27 @@
                 </span>
               </div>
             </form>
-            <div ng-show="!loggedUser">
+            <div id="home-signup" ng-show="!loggedUser">
             <form action="#!/signup">
             <h4>Create an account and join our community -track your content add ratings and reviews</h4>
             <button type="submit" class="btn btn-danger btn-signup" id="home-button" >Create account</button>
             </form>
             <p>Already have an account? <a href="#!/login">Login</a></p>
-        </div>
+            </div>
+          </div>
       </div><!--End row-->
-      <div class="row">
+      <div id="headlines" class="row">
         <div class="col-xs-12 col-md-4">
-          <h3>SEARCH</h3>
-          <p>Search your favorite movies and tv shows and get relevant information together with reviews and ratings from our users. Make elaborate decisions on what to watch next based on our community's feedback and stay up to date with the latest shows and flicks</p>
+          <h5>SEARCH</h5>
+          <p>Search your favorite movies and tv shows and get relevant information together with reviews and ratings</p>
         </div>
         <div class="col-xs-12 col-md-4">
-          <h3>RATE AND REVIEW</h3>
-          <p>Join our community and rate and review your shows and movies. Help others decide what to watch and keep lively conversations on the latest flicks. Our community will watch out for spoilers for you and keep sensitive information about upcomming twists and turns of plot events out of sight for those who are behind</p>
+          <h5>RATE AND REVIEW</h5>
+          <p>Join our community and rate and review your shows and movies. Help others decide what to watch and keep lively conversations on the latest flicks</p>
         </div>
         <div class="col-xs-12 col-md-4">
-          <h3>KEEP TRACK</h3>
-          <p>Keep a collection of your shows and movies in your personal profile together with your ratings and reviews so that you keep track of what shows and movies you've watched or intend to watch next, all your published reviews all in one place that you can easily share with others</p>
+          <h5>KEEP TRACK</h5>
+          <p>Keep a collection in your personal profile and keep track of what shows and movies you've watched or intend to watch next</p>
         </div>  
       </div><!--End row-->
 
