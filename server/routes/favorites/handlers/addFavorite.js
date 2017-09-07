@@ -1,11 +1,8 @@
 const Favorite = require('../../../models/Favorite')
 
 function addFavorite (req, res) {
-  console.log('entered addFavorite')
   let {user, imdbID, stars} = req.params
-  console.log(stars)
   stars = parseInt(stars)
-  console.log(stars)
 
   const favorite = new Favorite({user, imdbID, stars})
 

@@ -5,7 +5,6 @@ angular.module('movTv')
     $scope.query = ''
 
     $scope.getQuery = function () {
-      console.log('button clicked!')
       var query = $scope.query
       console.log(query)
       $location.path('/results/' + query)

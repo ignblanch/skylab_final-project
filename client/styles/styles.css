@@ -498,8 +498,7 @@ p {
   margin-bottom: 10px; }
 
 #review-image {
-  min-width: 100%;
-  min-height: 100%; }
+  width: 100%; }
 
 @media (max-width: 1200px) {
   .navbar-header {

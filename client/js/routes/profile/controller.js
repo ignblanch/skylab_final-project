@@ -61,8 +61,9 @@ angular.module('movTv')
         })
       } else {
         FavoritesService.editStarsFav($scope.editFavId, newStars)
-          .then($window.location.reload())
+          // .then($window.location.reload())
           // .then(loadFavorites())
+          .then(console.log('stars edited correctly'))
       }
     }
 
