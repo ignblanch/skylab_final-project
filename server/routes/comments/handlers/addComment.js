@@ -1,7 +1,6 @@
 const Comment = require('../../../models/Comment')
 
 function addComment (req, res) {
-  console.log('entered addcomment')
   let {author, commentTitle, stars, imdbID, body, spoiler} = req.params
   stars = parseInt(stars)
 

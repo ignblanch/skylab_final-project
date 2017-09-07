@@ -18,9 +18,9 @@
       </div>
       <div class="col-xs-12 col-md-3 fav-buttons">
         <span ng-show="isFavorite"><i id="fav-star" class="fa fa-star" aria-hidden="true"></i>
-        <p>Added to Favorites</p></span>
-        <button ng-show="!isFavorite" data-toggle="modal" data-target="#favModal" class="btn btn-block btn-info btn-signup" id="addFav"><i class="fa fa-heart-o"></i> Add to Favorites</button>
-        <button ng-show="isFavorite" ng-click="removeFavorite()" class="btn btn-block btn-info btn-signup" id="removeFav"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span> Remove Favorite</button>
+        <p>Added to Collection</p></span>
+        <button ng-show="!isFavorite" data-toggle="modal" data-target="#favModal" class="btn btn-block btn-info btn-signup" id="addFav"><i class="fa fa-heart-o"></i> Add to Collection</button>
+        <button ng-show="isFavorite" ng-click="removeFavorite()" class="btn btn-block btn-info btn-signup" id="removeFav"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span> Remove from Collection</button>
         <a ng-click="writeReview()"><button class="btn btn-block btn-info btn-signup"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> Add Review</button></a><hr>
         <div id="rating-stats">
         <p>{{totalRatings}} reviews:</p> 
@@ -57,7 +57,7 @@
   <div id="favModal" class="modal fade" role="dialog">
     <div class="modal-dialog">
         <div class="card card-container">
-            <p class="signup">Add to Favorites: </p>
+            <p class="signup">Add to Collection: </p>
             <form name="favform">
             <div class="form-group">  
               <fieldset>
@@ -71,9 +71,9 @@
                 </span>
               </fieldset>
               </form>
-              <button ng-click="addFavorite(stars)" data-dismiss="modal" class="btn btn-lg btn-success btn-block btn-signup">Add Favorite</button>    
+              <button ng-click="addFavorite(stars)" data-dismiss="modal" class="btn btn-lg btn-success btn-block btn-signup">Add</button>    
         </div>
-            <p class="signup"><a href="#" data-dismiss="modal" class="pull-right">Dismiss</a></p>
+            <p class="signup"><a href="#" data-dismiss="modal" class="pull-right">Cancel</a></p>
         </div><!-- End card-container -->         
     </div>
   </div><!-- End Fav Modal -->

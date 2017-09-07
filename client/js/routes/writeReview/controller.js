@@ -1,8 +1,7 @@
 /* global angular */
 
 angular.module('movTv')
-  .controller('WriteReviewController', function ($scope, $rootScope, AuthService, toastr, $location, $window, $routeParams, MediaService, CommentsService) {
-
+  .controller('WriteReviewController', function ($scope, sweetAlert,$rootScope, AuthService, toastr, $location, $window, $routeParams, MediaService, CommentsService) {
     $scope.imdbID = $routeParams.imdbID
     $scope.author = $rootScope.loggedUser
     $scope.body = ''
@@ -20,6 +19,22 @@ angular.module('movTv')
 
     function postComment () {
       CommentsService.addComment($scope.author, $scope.commentTitle, $scope.stars, $scope.imdbID, $scope.body, $scope.spoiler)
+      .then(
+        sweetAlert.swal({
+          type: 'success',
+          title: 'Thanks!',
+          text: `Review added`,
+          showConfirmButton: false,
+          timer: 2000
+        }).then(
+            function () {
+              // do nothing
+            }, function (dismiss) {
+              if (dismiss === 'timer') {
+                // do nothing
+              }
+            })
+      )
       .then($window.location.href = `#!/detail/${$scope.imdbID}`)
     }
 

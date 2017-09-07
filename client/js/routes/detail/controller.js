@@ -42,7 +42,7 @@ angular.module('movTv')
 
     function removeFavorite () {
       sweetAlert.swal({
-        title: 'Delete FAvorite',
+        title: 'Delete',
         text: 'Are you sure you want to delete this from your collection?',
         type: 'error',
         showCancelButton: true,

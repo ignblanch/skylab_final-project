@@ -8,7 +8,7 @@ function addFavorite (req, res) {
 
   favorite.save()
     .then(() => res.send(`Added movie with ID ${imdbID} to favorites`))
-    .catch(console.log('Error adding favorite'))
+    .catch((err) => console.log('Error adding favorite' + err))
 }
 
 module.exports = addFavorite
