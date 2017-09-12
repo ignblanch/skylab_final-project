@@ -35,11 +35,5 @@ angular.module('movTv')
       delete $rootScope.loggedUser
     }
 
-    return {
-      registerUser: registerUser,
-      doLogin: doLogin,
-      isLoggedIn: isLoggedIn,
-      setCredentials: setCredentials,
-      logout: logout
-    }
+    return { registerUser, doLogin, isLoggedIn, setCredentials, logout }
   })

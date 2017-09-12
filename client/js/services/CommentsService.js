@@ -26,11 +26,5 @@ angular.module('movTv')
       return $http.post(url)
     }
 
-    return {
-      getCommentsByFilm: getCommentsByFilm,
-      getCommentsByAuthor: getCommentsByAuthor,
-      addComment: addComment,
-      removeComment: removeComment,
-      markCommentSpoiler: markCommentSpoiler
-    }
+    return { getCommentsByFilm, getCommentsByAuthor, addComment, removeComment, markCommentSpoiler }
   })

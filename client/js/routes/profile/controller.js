@@ -40,11 +40,10 @@ angular.module('movTv')
           confirmButtonText: 'Confirm',
           cancelButtonText: 'Cancel'
         }).then(function () {
-          // $scope.isFavorite = false
           FavoritesService.removeFavorite($scope.user, imdbID)
             .then(loadFavorites())
         }, function (dismiss) {
-          // do nothing
+          loadFavorites()
         })
       }
     }

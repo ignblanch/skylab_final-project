@@ -27,11 +27,5 @@ angular.module('movTv')
       return $http.put(url)
     }
 
-    return {
-      getFavoritesByUser: getFavoritesByUser,
-      addFavorite: addFavorite,
-      removeFavorite: removeFavorite,
-      getFavorite: getFavorite,
-      editStarsFav: editStarsFav
-    }
+    return { getFavoritesByUser, addFavorite, removeFavorite, getFavorite, editStarsFav }
   })

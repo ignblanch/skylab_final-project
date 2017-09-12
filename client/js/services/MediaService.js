@@ -13,8 +13,5 @@ angular.module('movTv')
       const url = `/media/detail/${imdbID}`
       return $http.get(url)
     }
-    return {
-      searchMedia: searchMedia,
-      searchDetail: searchDetail
-    }
+    return { searchMedia, searchDetail }
   })
