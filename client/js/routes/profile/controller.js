@@ -5,6 +5,7 @@ angular.module('movTv')
     $scope.user = $routeParams.user
     loadFavorites()
     loadComments()
+    $scope.FullFavorites = []
     $scope.editFavId = ''
     $scope.newStars = 0
 
@@ -16,7 +17,6 @@ angular.module('movTv')
         $scope.favorites.forEach(favorite => MediaService.searchDetail(favorite.imdbID)
         .then(function (response) {
           response.data.stars = favorite.stars
-          console.log(response.data.stars)
           response.data.favId = favorite._id
           $scope.FullFavorites.push(response.data)
         }))
@@ -40,7 +40,7 @@ angular.module('movTv')
           confirmButtonText: 'Confirm',
           cancelButtonText: 'Cancel'
         }).then(function () {
-          $scope.isFavorite = false
+          // $scope.isFavorite = false
           FavoritesService.removeFavorite($scope.user, imdbID)
             .then(loadFavorites())
         }, function (dismiss) {
@@ -61,8 +61,6 @@ angular.module('movTv')
         })
       } else {
         FavoritesService.editStarsFav($scope.editFavId, newStars)
-          // .then($window.location.reload())
-          // .then(loadFavorites())
           .then(console.log('stars edited correctly'))
       }
     }
